@@ -12,13 +12,17 @@ class Business extends Model
     protected $fillable = [
         'name',
         'description',
-        'owner_name',
-        'phone_number',
-        'email',
         'social_media_handle',
         'cr',
+        'id',
+        'age',
         'profile_img',
         'banner',
+
+        'owner_name',
+        'owner_age',
+        'phone_number',
+        'email',
     ];
 
     /**
