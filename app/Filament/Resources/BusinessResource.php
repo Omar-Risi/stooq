@@ -45,7 +45,19 @@ class BusinessResource extends Resource
                         "University"
                     ]),
                     Forms\Components\TextInput::make('owner_id')->label('ID number'),
+                ]),
+
+                Forms\Components\Repeater::make('products')
+                ->relationship('products')
+                ->schema([
+                    Forms\Components\TextInput::make('name')->label('Product Name')->required(),
+                    Forms\Components\TextInput::make('price')->numeric()->prefix('OMR'),
                 ])
+                ->columns(2)
+                ->minItems(0)
+                ->maxItems(10)
+                ->label('Products')
+                ->collapsible()
             ]);
     }
 
