@@ -15,27 +15,37 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class BusinessResource extends Resource
 {
+
     protected static ?string $model = Business::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+
+    public static function canCreate():bool {return false;}
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
                 Forms\Components\Fieldset::make('Business Information')->schema([
-                    Forms\Components\TextInput::make('name')->required(),
-                    Forms\Components\TextInput::make('cr')->label('Commercial Registeration (optional)'),
-                    Forms\Components\Textarea::make('description')->columnSpan(2),
-                    Forms\Components\FileUpload::make('profile_img')->columnSpan(2),
-                    Forms\Components\FileUpload::make('banner')->columnSpan(2),
+                    Forms\Components\TextInput::make('name')->label('Business name'),
+                    Forms\Components\TextInput::make('age')->label('Business Age'),
+                    Forms\Components\TextInput::make('cr')->label('Commercial Regsteration Number'),
+                    Forms\Components\TextInput::make('instagram_handle')->label('Instagram Account'),
+                    Forms\Components\Textarea::make('description')->label('About business')->columnSpanFull(),
+                    Forms\Components\FileUpload::make('profile_img')->label('Profile image'),
+                    Forms\Components\FileUpload::make('banner')->label('Business banner'),
                 ]),
-                Forms\Components\Fieldset::make('Contact information:')->schema([
-                    Forms\Components\TextInput::make('owner_name')->required(),
-                    Forms\Components\TextInput::make('phone_number')->required(),
-                    Forms\Components\TextInput::make('email')->required(),
-                    Forms\Components\TextInput::make('social_media_handle')->required(),
-                ]),
+
+                Forms\Components\Fieldset::make('Owner information')->schema([
+                    Forms\Components\TextInput::make('owner_name')->label('Name'),
+                    Forms\Components\TextInput::make('owner_age')->label('Age'),
+                    Forms\Components\TextInput::make('owner_gender')->label('Gender'),
+                    Forms\Components\Select::make('educational_institution')->label('Educational Status')->options([
+                        "School",
+                        "University"
+                    ]),
+                    Forms\Components\TextInput::make('owner_id')->label('ID number'),
+                ])
             ]);
     }
 
@@ -43,7 +53,9 @@ class BusinessResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('name')->searchable(),
+                Tables\Columns\TextColumn::make('instagram_handle')->searchable(),
+                // ADD Products count
             ])
             ->filters([
                 //
