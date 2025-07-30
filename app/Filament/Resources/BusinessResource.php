@@ -67,7 +67,7 @@ class BusinessResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('name')->searchable(),
                 Tables\Columns\TextColumn::make('instagram_handle')->searchable(),
-                // ADD Products count
+                // TODO: add products count
             ])
             ->filters([
                 //
