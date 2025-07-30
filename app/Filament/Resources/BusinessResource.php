@@ -24,9 +24,18 @@ class BusinessResource extends Resource
         return $form
             ->schema([
                 Forms\Components\Fieldset::make('Business Information')->schema([
-                    Forms\Components\TextInput::make('name'),
-                    // TODO: Add the rest of fields
-                ])
+                    Forms\Components\TextInput::make('name')->required(),
+                    Forms\Components\TextInput::make('cr')->label('Commercial Registeration (optional)'),
+                    Forms\Components\Textarea::make('description')->columnSpan(2),
+                    Forms\Components\FileUpload::make('profile_img')->columnSpan(2),
+                    Forms\Components\FileUpload::make('banner')->columnSpan(2),
+                ]),
+                Forms\Components\Fieldset::make('Contact information:')->schema([
+                    Forms\Components\TextInput::make('owner_name')->required(),
+                    Forms\Components\TextInput::make('phone_number')->required(),
+                    Forms\Components\TextInput::make('email')->required(),
+                    Forms\Components\TextInput::make('social_media_handle')->required(),
+                ]),
             ]);
     }
 

@@ -14,6 +14,7 @@ class Business extends Model
         'description',
         'owner_name',
         'phone_number',
+        'email',
         'social_media_handle',
         'cr',
         'profile_img',

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('description');
             $table->string('owner_name');
             $table->string('phone_number');
+            $table->string('email');
             $table->string('social_media_handle');
             $table->string('cr')->nullable(true);
             $table->string('profile_img');
