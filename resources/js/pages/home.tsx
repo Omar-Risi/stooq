@@ -13,10 +13,10 @@ export default function Home() {
                 <NavBar primaryColor={"white"}></NavBar>
 
                 <div className="text-white flex-1 flex justify-center items-center">
-                    <div className="w-1/2">
+                    <div className="w-1/2 flex flex-col items-center">
                         <h1 className="text-4xl font-bold"> Welcome to <span className="bg-clip-text text-transparent bg-linear-to-r from-primary to-primary-dark"> STOOQ </span></h1>
-                        <p> A Marketplace by students, for students</p>
-                        <div className="flex gap-4 mt-4">
+                        <p className="mt-4 "> A Marketplace made by students, for students</p>
+                        <div className="flex flex-col md:flex-row  gap-4 mt-4">
                             <Button>Become a vendor </Button>
                             <Button className="bg-none border-4 text-primary border-primary hover:border-transparent"> Start shopping </Button>
                         </div>
