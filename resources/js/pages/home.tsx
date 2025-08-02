@@ -36,12 +36,13 @@ export default function Home() {
 
 
             {/* Using min-h-[50vh] to make space dynamically instead of using margins */}
-            <section className="text-primary-dark min-h-[50vh] flex justify-center flex-col items-center text-center">
+            <section className="text-primary-dark min-h-[50vh] flex justify-center flex-col items-center text-center" id="about">
                 <SubHeading className="w-4/5">
                     We make student entreprenuership simple ✅
                 </SubHeading>
 
-                <p className="mt-2 text-charcoal"> Focus on your product we will handle everything </p>
+                <p className="mt-2 text-charcoal w-1/2">
+                    STOOQ is a student-focused marketplace that makes it easy to launch and grow a business. We remove the hassle so students can list products and start selling with confidence.                </p>
 
                 <Button className="text-white bg-none bg-primary mt-4">
                     <Link className="block" href={route('business.apply')}>
