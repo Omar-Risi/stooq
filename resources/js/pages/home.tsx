@@ -10,7 +10,7 @@ export default function Home() {
                 {/* BG made independent because of scale-x-125 */}
                 <div className="bg-linear-to-br from-light-magenta to-dark-magenta h-full scale-x-125 w-screen -z-5 rounded-b-full absolute top-0 left-0"></div>
 
-                <NavBar primaryColor={"white"}></NavBar>
+                <NavBar className="fill-white text-white" />
 
                 <div className="text-white flex-1 flex justify-center items-center">
                     <div className="w-1/2 flex flex-col items-center text-center">

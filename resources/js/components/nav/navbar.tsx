@@ -3,12 +3,12 @@ import StooqLogo from "@/components/icons/logo";
 import { Link } from "@inertiajs/react";
 
 type NavBarProps = {
-    primaryColor: string,
+    className?: string,
 }
 
-export default function NavBar({ primaryColor }: NavBarProps) {
+export default function NavBar({ className }: NavBarProps) {
     return (
-        <header className={`w-screen p-4 fill-${primaryColor} text-${primaryColor} flex justify-between`}>
+        <header className={`${className} w-screen p-4 text-primary fill-primary flex justify-between`}>
             <Link href={route('home')} className="flex gap-4">
                 <StooqLogo />
                 <h1 className="font-extrabold text-2xl"> STOOQ </h1>
