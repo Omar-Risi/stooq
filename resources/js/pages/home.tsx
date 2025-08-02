@@ -1,5 +1,6 @@
 import NavBar from "@/components/nav/navbar";
 import Button from "@/components/front/button";
+import SubHeading from "@/components/front/sub-heading";
 import { Link } from "@inertiajs/react";
 
 
@@ -32,8 +33,20 @@ export default function Home() {
             </main>
 
 
-            <section className="text-primary-dark mt-8">
-                {/* TODO: Add sub heading here */}
+            <section className="text-primary-dark mt-12 flex flex-col items-center text-center">
+
+                <SubHeading className="w-4/5">
+                    We make student entreprenuership simple ✅
+                </SubHeading>
+
+                <p className="mt-2 text-charcoal"> Focus on your product we will handle everything </p>
+
+                <Button className="text-white bg-none bg-primary mt-4">
+                    <Link className="block" href={route('business.apply')}>
+                        Join now it's free!
+                    </Link>
+                </Button>
+
             </section>
         </>
     )
