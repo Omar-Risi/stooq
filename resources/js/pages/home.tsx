@@ -34,7 +34,6 @@ export default function Home() {
 
 
             <section className="text-primary-dark mt-12 flex flex-col items-center text-center">
-
                 <SubHeading className="w-4/5">
                     We make student entreprenuership simple ✅
                 </SubHeading>
@@ -47,6 +46,14 @@ export default function Home() {
                     </Link>
                 </Button>
 
+            </section>
+
+            <section className="text-primary-dark mt-12 flex flex-col items-center text-center">
+                <SubHeading className="w-4/5" >
+                    Flexible pricing for every type of business
+                </SubHeading>
+
+                <p className="mt-2 text-charcoal"> Our pricing model is designed to fit every type of business whether you are just starting or you already have clients.</p>
             </section>
         </>
     )
