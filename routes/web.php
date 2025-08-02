@@ -8,7 +8,7 @@ Route::get('/', function () {
 })->name('home');
 
 Route::get('/business/signup', function () {
-    return Inertia::render('home');
+    return Inertia::render('business/sign-up');
 })->name('business.apply');
 
 /* Route::middleware(['auth', 'verified'])->group(function () { */
