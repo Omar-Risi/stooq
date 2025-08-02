@@ -1,4 +1,5 @@
 import NavBar from "@/components/nav/navbar";
+import Footer from "@/components/nav/footer";
 import Button from "@/components/front/button";
 import SubHeading from "@/components/front/sub-heading";
 import { Link } from "@inertiajs/react";
@@ -98,6 +99,8 @@ export default function Home() {
                 </ul>
             </section>
 
+
+            <Footer />
         </>
     )
 }
