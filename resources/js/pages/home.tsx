@@ -1,5 +1,6 @@
 import NavBar from "@/components/nav/navbar";
 import Button from "@/components/front/button";
+import { Link } from "@inertiajs/react";
 
 
 export default function Home() {
@@ -17,13 +18,23 @@ export default function Home() {
                         <h1 className="text-4xl font-bold"> Welcome to <span className="bg-clip-text text-transparent bg-linear-to-r from-primary to-primary-dark"> STOOQ </span></h1>
                         <p className="mt-4 "> A Marketplace made by students, for students</p>
                         <div className="flex flex-col md:flex-row  gap-4 mt-4">
-                            <Button>Become a vendor </Button>
-                            <Button className="bg-none border-4 text-primary border-primary hover:border-transparent"> Start shopping </Button>
+                            <Button>
+                                <Link className="block" href={route('business.apply')}>
+                                    Become a vendor
+                                </Link>
+                            </Button>
+                            <a className="block" href="https://stooq.kushk.io">
+                                <Button className="bg-none border-4 text-primary border-primary hover:border-transparent"> Start shopping </Button>
+                            </a>
                         </div>
                     </div>
                 </div>
-
             </main>
+
+
+            <section className="text-primary-dark mt-8">
+                {/* TODO: Add sub heading here */}
+            </section>
         </>
     )
 }
