@@ -2,6 +2,7 @@ import NavBar from "@/components/nav/navbar";
 import Button from "@/components/front/button";
 import SubHeading from "@/components/front/sub-heading";
 import { Link } from "@inertiajs/react";
+import { Truck, Package, ChartArea } from "lucide-react";
 
 
 export default function Home() {
@@ -56,6 +57,47 @@ export default function Home() {
 
                 <p className="mt-2 text-charcoal"> Our pricing model is designed to fit every type of business whether you are just starting or you already have clients.</p>
             </section>
+
+            <section className="text-primary-dark min-h-[50vh] flex flex-col items-center justify-center text-center">
+                <SubHeading className="w-4/5" >
+                    What we offer to student businesses
+                </SubHeading>
+
+                <ul className="grid grid-rows-3 lg:grid-cols-3 lg:grid-rows-none lg:min-h-[25vh] lg:items-center gap-16 lg:gap-8 w-4/5 text-start mt-12">
+                    <li>
+                        <div className="flex gap-4 items-center">
+                            <Package className="stroke-primary size-16" />
+                            <h3 className="text-xl text-primary font-bold">  Product transportation </h3>
+                        </div>
+                        <p className="text-charcoal w-3/4 mt-2">
+                            You can manage your inventory from within stooq and track which products you are low on
+                        </p>
+                    </li>
+                    <li>
+                        <div className="flex gap-4 items-center">
+                            <Truck className="stroke-primary size-16" />
+                            <h3 className="text-xl text-primary font-bold">  Product transportation </h3>
+                        </div>
+                        <p className="text-charcoal w-3/4 mt-2">
+                            We handle delivery for
+                            your products so you only worry about improving your products
+                        </p>
+                    </li>
+
+                    <li>
+                        <div className="flex gap-4 items-center">
+                            <ChartArea className="stroke-primary size-16" />
+                            <h3 className="text-xl text-primary font-bold">  Product transportation </h3>
+                        </div>
+                        <p className="text-charcoal w-3/4 mt-2">
+                            Our dashboard provides sales tracking built within the platform.
+                        </p>
+                    </li>
+
+
+                </ul>
+            </section>
+
         </>
     )
 }
