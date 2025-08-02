@@ -33,7 +33,8 @@ export default function Home() {
             </main>
 
 
-            <section className="text-primary-dark mt-12 flex flex-col items-center text-center">
+            {/* Using min-h-[50vh] to make space dynamically instead of using margins */}
+            <section className="text-primary-dark min-h-[50vh] flex justify-center flex-col items-center text-center">
                 <SubHeading className="w-4/5">
                     We make student entreprenuership simple ✅
                 </SubHeading>
@@ -48,7 +49,7 @@ export default function Home() {
 
             </section>
 
-            <section className="text-primary-dark mt-12 flex flex-col items-center text-center">
+            <section className="text-primary-dark min-h-[25vh] flex flex-col items-center justify-center text-center">
                 <SubHeading className="w-4/5" >
                     Flexible pricing for every type of business
                 </SubHeading>
