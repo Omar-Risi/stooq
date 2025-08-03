@@ -22,7 +22,7 @@ export default function Home() {
                         <p className="mt-4 "> A Marketplace made by students, for students</p>
                         <div className="flex flex-col md:flex-row  gap-4 mt-4">
                             <Button>
-                                <Link className="block" href={route('business.apply')}>
+                                <Link className="block" href={route('business.sign-up')}>
                                     Become a vendor
                                 </Link>
                             </Button>

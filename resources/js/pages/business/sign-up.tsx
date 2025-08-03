@@ -4,7 +4,7 @@ import SubHeading from "@/components/front/sub-heading";
 import { Link } from "@inertiajs/react";
 
 
-export default function Home() {
+export default function SignUp() {
     return (
 
         <>

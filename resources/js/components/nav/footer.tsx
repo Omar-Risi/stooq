@@ -23,7 +23,7 @@ export default function Footer() {
                 <ul className="mt-4">
                     <ListItem url={route('home')}> Home </ListItem>
                     <ListItem url={`${route('home')}#about`}> About us </ListItem>
-                    <ListItem url={route('business.apply')}> Become a vendor </ListItem>
+                    <ListItem url={route('business.sign-up')}> Become a vendor </ListItem>
                 </ul>
             </div>
             <div className="flex justify-end items-end">

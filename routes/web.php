@@ -9,7 +9,7 @@ Route::get('/', function () {
 
 Route::get('/business/signup', function () {
     return Inertia::render('business/sign-up');
-})->name('business.apply');
+})->name('business.sign-up');
 
 /* Route::middleware(['auth', 'verified'])->group(function () { */
 /*     Route::get('dashboard', function () { */

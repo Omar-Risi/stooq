@@ -14,6 +14,7 @@ export default function NavBar({ className }: NavBarProps) {
                 <h1 className="font-extrabold text-2xl"> STOOQ </h1>
             </Link>
 
+            {/* TODO: Add responsive nav */}
             <nav className="flex items-center gap-4 px-4">
                 <a href="#about"> About us </a>
                 <a href="#pricing"> Pricing </a>
