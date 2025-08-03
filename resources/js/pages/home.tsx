@@ -45,7 +45,7 @@ export default function Home() {
                     STOOQ is a student-focused marketplace that makes it easy to launch and grow a business. We remove the hassle so students can list products and start selling with confidence.                </p>
 
                 <Button className="text-white bg-none bg-primary mt-4">
-                    <Link className="block" href={route('business.apply')}>
+                    <Link className="block" href={route('business.sign-up')}>
                         Join now it's free!
                     </Link>
                 </Button>
