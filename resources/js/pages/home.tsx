@@ -12,7 +12,7 @@ export default function Home() {
         <>
             <main className="relative flex flex-col min-h-[50vh]">
                 {/* BG made independent because of scale-x-125 */}
-                <div className="bg-linear-to-br from-light-magenta to-dark-magenta h-full scale-x-125 w-screen -z-5 rounded-b-full absolute top-0 left-0"></div>
+                <div className="bg-linear-to-br from-light-magenta to-dark-magenta h-[110%] scale-x-125 w-screen -z-5 rounded-b-full absolute top-0 left-0"></div>
 
                 <NavBar className="fill-white text-white" />
 
@@ -36,7 +36,7 @@ export default function Home() {
 
 
             {/* Using min-h-[50vh] to make space dynamically instead of using margins */}
-            <section className="text-primary-dark min-h-[50vh] flex justify-center flex-col items-center text-center" id="about">
+            <section className="text-primary-dark min-h-[80vh] lg:min-h-[50vh] flex justify-center flex-col items-center text-center mt-12" id="about">
                 <SubHeading className="w-4/5">
                     We make student entreprenuership simple ✅
                 </SubHeading>
@@ -52,7 +52,7 @@ export default function Home() {
 
             </section>
 
-            <section className="text-primary-dark min-h-[25vh] flex flex-col items-center justify-center text-center">
+            <section className="text-primary-dark min-h-[50vh] lg:min-h-[25vh] flex flex-col items-center justify-center text-center" id="pricing">
                 <SubHeading className="w-4/5" >
                     Flexible pricing for every type of business
                 </SubHeading>
