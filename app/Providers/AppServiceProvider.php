@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Lang;
+use Illuminate\Support\Facades\App;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,11 +24,11 @@ class AppServiceProvider extends ServiceProvider
     {
         // pass locale translations using props
         Inertia::share([
-            'translations' =>
-            [
+            'locale' => fn() => App::getLocale(),
+            'translations' => [
                  'home' => Lang::get('home'),
+                 'general' => Lang::get('general'),
             ]
-
     ]);
     }
 }

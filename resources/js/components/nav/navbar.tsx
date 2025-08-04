@@ -10,31 +10,40 @@ import {
     SheetClose,
 } from "@/components/ui/sheet";
 
+import { usePage } from "@inertiajs/react";
+
 type NavBarProps = {
     className?: string,
 };
 
 export default function NavBar({ className }: NavBarProps) {
+
+    const { translations, locale } = usePage().props;
+
     return (
         <header className={`${className} w-screen p-4 text-primary fill-primary flex justify-between`}>
             <Link href={route('home')} className="flex gap-4">
                 <StooqLogo />
-                <h1 className="font-extrabold text-2xl"> STOOQ </h1>
+                <h1 className="font-extrabold text-2xl"> {translations.general.stooq} </h1>
             </Link>
 
             <nav className="flex items-center gap-4 px-4">
                 {/* Desktop Nav */}
-                <Link href={`${route('home')}#about`} className="hidden lg:block"> About us </Link>
-                <Link href={`${route('home')}#pricing`} className="hidden lg:block"> Pricing </Link>
+                <Link href={`${route('home')}#about`} className="hidden lg:block">
+                    {translations.general.nav.about}
+                </Link>
+                <Link href={`${route('home')}#pricing`} className="hidden lg:block">
+                    {translations.general.nav.pricing}
+                </Link>
 
                 <button className="rounded shadow-md p-2 bg-primary text-white cursor-pointer hover:bg-white hover:text-primary transition-colors">
                     <Link href={route('business.sign-up')}>
-                        Become a vendor
+                        {translations.general.nav.become_a_vendor}
                     </Link>
                 </button>
 
                 <button className="rounded shadow-md p-2 bg-primary text-white cursor-pointer hover:bg-white hover:text-primary transition-colors">
-                    AR
+                    {locale == 'en' ? 'AR' : 'EN'}
                 </button>
 
                 {/* Mobile Nav */}
@@ -45,20 +54,25 @@ export default function NavBar({ className }: NavBarProps) {
                                 <Menu size={36} />
                             </button>
                         </SheetTrigger>
-                        <SheetContent side="right" className="w-64">
+                        <SheetContent side="right" className="w-64 flex flex-col">
                             <SheetHeader>
-                                <SheetTitle>Menu</SheetTitle>
                             </SheetHeader>
-                            <div className="mt-4 flex flex-col gap-4 px-4" >
+                            <div className="mt-4 flex flex-col justify-center gap-4 px-4 flex-1 " >
                                 <SheetClose asChild>
-                                    <Link href={`${route('home')}#about`} className="text-lg">About us</Link>
+                                    <Link href={`${route('home')}#about`} className="text-lg">
+                                        {translations.general.nav.about}
+                                    </Link>
                                 </SheetClose>
                                 <SheetClose asChild>
-                                    <Link href={`${route('home')}#pricing`} className="text-lg">Pricing</Link>
+                                    <Link href={`${route('home')}#pricing`} className="text-lg">
+                                        {translations.general.nav.pricing}
+                                    </Link>
                                 </SheetClose>
 
                                 <SheetClose asChild>
-                                    <Link href={`${route('home')}#pricing`} className="text-lg"> Become a vendor</Link>
+                                    <Link href={`${route('home')}#pricing`} className="text-lg">
+                                        {translations.general.nav.become_a_vendor}
+                                    </Link>
                                 </SheetClose>
                             </div>
                         </SheetContent>
