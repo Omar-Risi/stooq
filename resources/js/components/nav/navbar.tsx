@@ -28,6 +28,12 @@ export default function NavBar({ className }: NavBarProps) {
                 <Link href={`${route('home')}#pricing`} className="hidden lg:block"> Pricing </Link>
 
                 <button className="rounded shadow-md p-2 bg-primary text-white cursor-pointer hover:bg-white hover:text-primary transition-colors">
+                    <Link href={route('business.sign-up')}>
+                        Become a vendor
+                    </Link>
+                </button>
+
+                <button className="rounded shadow-md p-2 bg-primary text-white cursor-pointer hover:bg-white hover:text-primary transition-colors">
                     AR
                 </button>
 
