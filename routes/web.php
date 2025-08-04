@@ -2,14 +2,20 @@
 
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Http\Middleware\SetLocale;
 
-Route::get('/', function () {
-    return Inertia::render('home');
-})->name('home');
 
-Route::get('/business/signup', function () {
-    return Inertia::render('business/sign-up');
-})->name('business.sign-up');
+Route::middleware([SetLocale::class])->group(
+    function () {
+        Route::get('/', function () {
+            return Inertia::render('home');
+        })->name('home');
+
+        Route::get('/business/signup', function () {
+            return Inertia::render('business/sign-up');
+        })->name('business.sign-up');
+    }
+);
 
 /* Route::middleware(['auth', 'verified'])->group(function () { */
 /*     Route::get('dashboard', function () { */

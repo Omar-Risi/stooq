@@ -4,9 +4,14 @@ import Button from "@/components/front/button";
 import SubHeading from "@/components/front/sub-heading";
 import { Link } from "@inertiajs/react";
 import { Truck, Package, ChartArea } from "lucide-react";
+import { usePage } from "@inertiajs/react";
 
 
 export default function Home() {
+
+    const { translations } = usePage().props;
+
+
     return (
 
         <>
@@ -18,7 +23,7 @@ export default function Home() {
 
                 <div className="text-white flex-1 flex justify-center items-center">
                     <div className="w-1/2 flex flex-col items-center text-center">
-                        <h1 className="text-4xl font-bold"> Welcome to <span className="bg-clip-text text-transparent bg-linear-to-r from-primary to-primary-dark"> STOOQ </span></h1>
+                        <h1 className="text-4xl font-bold">  Welcome to <span className="bg-clip-text text-transparent bg-linear-to-r from-primary to-primary-dark"> STOOQ </span></h1>
                         <p className="mt-4 "> A Marketplace made by students, for students</p>
                         <div className="flex flex-col md:flex-row  gap-4 mt-4">
                             <Button>
