@@ -2,8 +2,7 @@ import { Link } from "@inertiajs/react";
 
 export default function Footer() {
 
-
-    function ListItem({ url, children }: { url: string, children?: any }) {
+    function ListItem({ url, children }) {
         return (
             <li>
                 <Link

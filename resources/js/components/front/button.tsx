@@ -1,8 +1,6 @@
 
 type ButtonProps = {
-    children?: any,
     className?: string
-
 }
 
 export default function Button({ children, className }: ButtonProps) {
