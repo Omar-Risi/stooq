@@ -1,5 +1,5 @@
 import StooqLogo from "@/components/icons/logo";
-import { Link } from "@inertiajs/react";
+import { Link, router } from "@inertiajs/react";
 import { Menu } from "lucide-react";
 import {
     Sheet,
@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/sheet";
 
 import { usePage } from "@inertiajs/react";
+import { useEffect } from "react";
 
 type NavBarProps = {
     className?: string,
@@ -19,6 +20,16 @@ type NavBarProps = {
 export default function NavBar({ className }: NavBarProps) {
 
     const { translations, locale } = usePage().props;
+
+
+    useEffect(() => {
+        console.log({ locale, translations })
+    })
+
+    function toggleLang() {
+        router.post(route('switch.lang', { locale: (locale == 'en') ? 'ar' : 'en' }), { preserveScroll: true })
+    }
+
 
     return (
         <header className={`${className} w-screen p-4 text-primary fill-primary flex justify-between`}>
@@ -42,7 +53,9 @@ export default function NavBar({ className }: NavBarProps) {
                     </Link>
                 </button>
 
-                <button className="rounded shadow-md p-2 bg-primary text-white cursor-pointer hover:bg-white hover:text-primary transition-colors">
+                <button
+                    onClick={toggleLang}
+                    className="rounded shadow-md p-2 bg-primary text-white cursor-pointer hover:bg-white hover:text-primary transition-colors">
                     {locale == 'en' ? 'AR' : 'EN'}
                 </button>
 
