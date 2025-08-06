@@ -36,7 +36,7 @@ export default function NavBar({ className }: NavBarProps) {
                     {translations.general.nav.pricing}
                 </Link>
 
-                <button className="rounded shadow-md p-2 bg-primary text-white cursor-pointer hover:bg-white hover:text-primary transition-colors">
+                <button className="hidden lg:block rounded shadow-md p-2 bg-primary text-white cursor-pointer hover:bg-white hover:text-primary transition-colors">
                     <Link href={route('business.sign-up')}>
                         {translations.general.nav.become_a_vendor}
                     </Link>
