@@ -25,6 +25,7 @@ class AppServiceProvider extends ServiceProvider
         // pass locale translations using props
         Inertia::share([
             'locale' => fn() => App::getLocale(),
+            'direction' => fn() => App::getLocale() == 'en' ? 'ltr' : 'rtl',
             'translations' => fn() => [
                  'home' => Lang::get('home'),
                  'general' => Lang::get('general'),

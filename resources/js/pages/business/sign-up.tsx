@@ -1,13 +1,15 @@
 import NavBar from "@/components/nav/navbar";
 import Button from "@/components/front/button";
 import SubHeading from "@/components/front/sub-heading";
-import { Link } from "@inertiajs/react";
+import { Link, usePage } from "@inertiajs/react";
 
 
 export default function SignUp() {
-    return (
 
-        <>
+    const { direction } = usePage().props;
+
+    return (
+        <div dir={direction} className="h-full w-full">
             <main className="relative flex flex-col min-h-[50vh]">
                 {/* BG made independent because of scale-x-125 */}
                 <div className="bg-linear-to-br from-light-magenta to-dark-magenta h-full scale-x-125 w-screen -z-5 rounded-b-full absolute top-0 left-0"></div>
@@ -23,6 +25,6 @@ export default function SignUp() {
             {/* Using min-h-[50vh] to make space dynamically instead of using margins */}
             <section className="text-primary-dark min-h-[50vh] flex justify-center flex-col items-center text-center">
             </section>
-        </>
+        </div>
     )
 }

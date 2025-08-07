@@ -9,12 +9,12 @@ import { usePage } from "@inertiajs/react";
 
 export default function Home() {
 
-    const { translations } = usePage().props;
+    const { translations, direction } = usePage().props;
 
 
     return (
 
-        <>
+        <div dir={direction}>
             <main className="relative flex flex-col min-h-[50vh]">
                 {/* BG made independent because of scale-x-125 */}
                 <div className="bg-linear-to-br from-light-magenta to-dark-magenta h-[110%] scale-x-125 w-screen -z-5 rounded-b-full absolute top-0 left-0"></div>
@@ -112,6 +112,6 @@ export default function Home() {
 
 
             <Footer />
-        </>
+        </div>
     )
 }
