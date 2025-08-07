@@ -48,15 +48,16 @@ export default function Home() {
             {/* Using min-h-[50vh] to make space dynamically instead of using margins */}
             <section className="text-primary-dark min-h-[80vh] lg:min-h-[50vh] flex justify-center flex-col items-center text-center mt-12" id="about">
                 <SubHeading className="w-4/5">
-                    We make student entreprenuership simple ✅
+                    {translations.home.about.headline}
                 </SubHeading>
 
                 <p className="mt-2 text-charcoal w-1/2">
-                    STOOQ is a student-focused marketplace that makes it easy to launch and grow a business. We remove the hassle so students can list products and start selling with confidence.                </p>
+                    {translations.home.about.sub_headline}
+                </p>
 
                 <Button className="text-white bg-none bg-primary mt-4">
                     <Link className="block" href={route('business.sign-up')}>
-                        Join now it's free!
+                        {translations.home.about.cta}
                     </Link>
                 </Button>
 
@@ -64,45 +65,48 @@ export default function Home() {
 
             <section className="text-primary-dark min-h-[50vh] lg:min-h-[25vh] flex flex-col items-center justify-center text-center" id="pricing">
                 <SubHeading className="w-4/5" >
-                    Flexible pricing for every type of business
+                    {translations.home.pricing.headline}
                 </SubHeading>
 
-                <p className="mt-2 text-charcoal"> Our pricing model is designed to fit every type of business whether you are just starting or you already have clients.</p>
+                <p className="mt-2 text-charcoal">
+                    {translations.home.pricing.sub_headline}
+                </p>
             </section>
 
             <section className="text-primary-dark min-h-[50vh] flex flex-col items-center justify-center text-center">
                 <SubHeading className="w-4/5" >
-                    What we offer to student businesses
+                    {translations.home.benefits.headline}
                 </SubHeading>
 
                 <ul className="grid grid-rows-3 lg:grid-cols-3 lg:grid-rows-none lg:min-h-[25vh] lg:items-center gap-16 lg:gap-8 w-4/5 text-start mt-12">
                     <li>
                         <div className="flex gap-4 items-center">
                             <Package className="stroke-primary size-16" />
-                            <h3 className="text-xl text-primary font-bold">  Product transportation </h3>
+                            <h3 className="text-xl text-primary font-bold"> {translations.home.benefits.inventory.headline}</h3>
                         </div>
                         <p className="text-charcoal w-3/4 mt-2">
-                            You can manage your inventory from within stooq and track which products you are low on
+                            {translations.home.benefits.inventory.sub_headline}
                         </p>
                     </li>
                     <li>
                         <div className="flex gap-4 items-center">
                             <Truck className="stroke-primary size-16" />
-                            <h3 className="text-xl text-primary font-bold">  Product transportation </h3>
+                            <h3 className="text-xl text-primary font-bold">
+                                {translations.home.benefits.transport.headline}
+                            </h3>
                         </div>
                         <p className="text-charcoal w-3/4 mt-2">
-                            We handle delivery for
-                            your products so you only worry about improving your products
+                            {translations.home.benefits.transport.sub_headline}
                         </p>
                     </li>
 
                     <li>
                         <div className="flex gap-4 items-center">
                             <ChartArea className="stroke-primary size-16" />
-                            <h3 className="text-xl text-primary font-bold">  Product transportation </h3>
+                            <h3 className="text-xl text-primary font-bold"> {translations.home.benefits.sales.headline}</h3>
                         </div>
                         <p className="text-charcoal w-3/4 mt-2">
-                            Our dashboard provides sales tracking built within the platform.
+                            {translations.home.benefits.sales.sub_headline}
                         </p>
                     </li>
 
