@@ -29,6 +29,7 @@ class AppServiceProvider extends ServiceProvider
             'translations' => fn() => [
                  'home' => Lang::get('home'),
                  'general' => Lang::get('general'),
+                 'sign_up' => Lang::get('sign_up'),
             ]
     ]);
     }

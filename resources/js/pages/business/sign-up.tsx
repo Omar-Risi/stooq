@@ -6,7 +6,7 @@ import { Link, usePage } from "@inertiajs/react";
 
 export default function SignUp() {
 
-    const { direction } = usePage().props;
+    const { direction, translations } = usePage().props;
 
     return (
         <div dir={direction} className="h-full w-full">
@@ -17,7 +17,7 @@ export default function SignUp() {
                 <NavBar className="fill-white text-white" />
 
                 <div className="text-white flex-1 flex justify-center items-center">
-                    <h1 className="text-4xl font-bold text-center"> Become a vendor at <span className="bg-clip-text text-transparent bg-linear-to-r from-primary to-primary-dark"> STOOQ </span></h1>
+                    <h1 className="text-4xl font-bold text-center"> {translations.sign_up.headline} <span className="bg-clip-text text-transparent bg-linear-to-r from-primary to-primary-dark"> {translations.general.stooq} </span></h1>
                 </div>
             </main>
 
