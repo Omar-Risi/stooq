@@ -15,6 +15,12 @@ import {
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 
+import {
+    TextInputContainer,
+    RadioInputContainer,
+    SelectContainer
+} from "@/components/forms/input-container";
+
 
 export default function SignUp() {
 
@@ -58,104 +64,110 @@ export default function SignUp() {
                             <CardDescription>Provide information about yourself</CardDescription>
                         </CardHeader>
                         <CardContent className="space-y-4">
-                            <InputContainer>
-                                <Label htmlFor="owner_name">
-                                    Name <span className="text-red-500">*</span>
-                                </Label>
-                                <Input required type="text" id="owner_name" name="owner_name" placeholder="Your full name..." />
-                            </InputContainer>
 
-                            <InputContainer>
-                                <Label htmlFor="owner_age">
-                                    Age <span className="text-red-500">*</span>
-                                </Label>
-                                <Input required type="number" id="owner_age" name="owner_age" placeholder="Your age..." />
-                            </InputContainer>
+                            <TextInputContainer
+                                name="owner_name"
+                                type="text"
+                                label="Name"
+                                placeholder="John doe..."
+                                required={true}
+                                value=""
+                                error={'error'}
+                                onChange={() => 1}
+                            />
 
-                            <InputContainer>
-                                <Label htmlFor="owner_id">
-                                    ID Number <span className="text-red-500">*</span>
-                                </Label>
-                                <Input required type="text" id="owner_id" name="owner_id" placeholder="e.g. 12345678" />
-                            </InputContainer>
+                            <TextInputContainer
+                                name="owner_age"
+                                type="number"
+                                label="Age"
+                                placeholder="Your age"
+                                required={true}
+                                value=""
+                                error={'error'}
+                                onChange={() => 1}
+                            />
 
-                            <InputContainer>
-                                <Label>
-                                    Education Level <span className="text-red-500">*</span>
-                                </Label>
-                                <div className="flex flex-col gap-2 mt-1">
-                                    <label htmlFor="school" className="flex items-center gap-2">
-                                        <Input
-                                            required
-                                            type="radio"
-                                            id="school"
-                                            name="education_level"
-                                            value="school"
-                                            className="w-4 h-4 shadow-none"
-                                        />
-                                        <span>School</span>
-                                    </label>
-                                    <label htmlFor="higher_education" className="flex items-center gap-2">
-                                        <Input
-                                            required
-                                            type="radio"
-                                            id="higher_education"
-                                            name="education_level"
-                                            value="higher_education"
-                                            className="w-4 h-4 shadow-none"
-                                        />
-                                        <span>Higher Education</span>
-                                    </label>
-                                </div>
-                            </InputContainer>
+                            <TextInputContainer
+                                name="owner_id"
+                                type="number"
+                                label="ID number"
+                                placeholder="Your id number"
+                                required={true}
+                                value=""
+                                error={'error'}
+                                onChange={() => 1}
+                            />
 
-                            <InputContainer>
-                                <Label htmlFor="institute_name">
-                                    Higher Education Institute Name <span className="text-red-500">*</span>
-                                </Label>
-                                <Input required type="text" id="institute_name" name="institute_name" placeholder="e.g. SQU" />
-                            </InputContainer>
+                            <RadioInputContainer
+                                name="education_level"
+                                label="Education Level"
+                                required
+                                options={[
+                                    { label: "School", value: "school" },
+                                    { label: "Higher Education", value: "higher_education" },
+                                ]}
+                                value={""}
+                                onChange={() => 1}
+                                error={"error"}
+                            />
 
-                            <InputContainer>
-                                <Label htmlFor="phone">
-                                    Phone Number <span className="text-red-500">*</span>
-                                </Label>
-                                <Input required type="tel" id="phone" name="phone" placeholder="e.g. 91234567" />
-                            </InputContainer>
+                            <TextInputContainer
+                                name="institute_name"
+                                type="text"
+                                label="Educational institute name"
+                                placeholder="GUtech"
+                                required={true}
+                                value=""
+                                error={'error'}
+                                onChange={() => 1}
+                            />
 
-                            <InputContainer>
-                                <Label htmlFor="email">
-                                    Email <span className="text-red-500">*</span>
-                                </Label>
-                                <Input required type="email" id="email" name="email" placeholder="you@example.com" />
-                            </InputContainer>
+                            <TextInputContainer
+                                name="phone_number"
+                                type="text"
+                                label="Phone number"
+                                placeholder="+968 92345678"
+                                required={true}
+                                value=""
+                                error={'error'}
+                                onChange={() => 1}
+                            />
 
-                            <InputContainer>
-                                <Label htmlFor="governorate">
-                                    Governorate in Oman <span className="text-red-500">*</span>
-                                </Label>
-                                <select
-                                    required
-                                    id="governorate"
-                                    name="governorate"
-                                    className="w-full border rounded p-2"
-                                >
-                                    <option value="">Select governorate</option>
-                                    <option value="Muscat">Muscat</option>
-                                    <option value="Dhofar">Dhofar</option>
-                                    <option value="Musandam">Musandam</option>
-                                    <option value="Al Batinah North">Al Batinah North</option>
-                                    <option value="Al Batinah South">Al Batinah South</option>
-                                    <option value="Al Dakhiliyah">Al Dakhiliyah</option>
-                                    <option value="Al Sharqiyah North">Al Sharqiyah North</option>
-                                    <option value="Al Sharqiyah South">Al Sharqiyah South</option>
-                                    <option value="Al Dhahirah">Al Dhahirah</option>
-                                    <option value="Al Wusta">Al Wusta</option>
-                                    <option value="Al Buraimi">Al Buraimi</option>
-                                </select>
-                            </InputContainer>
+                            <TextInputContainer
+                                name="email"
+                                type="email"
+                                label="Email"
+                                placeholder="youremail@business.com"
+                                required={true}
+                                value=""
+                                error={'error'}
+                                onChange={() => 1}
+                            />
+
+                            <SelectContainer
+                                name="governorate"
+                                label="Governorate in Oman"
+                                required
+                                options={[
+                                    { value: "Muscat", label: "Muscat" },
+                                    { value: "Dhofar", label: "Dhofar" },
+                                    { value: "Musandam", label: "Musandam" },
+                                    { value: "Al Batinah North", label: "Al Batinah North" },
+                                    { value: "Al Batinah South", label: "Al Batinah South" },
+                                    { value: "Al Dakhiliyah", label: "Al Dakhiliyah" },
+                                    { value: "Al Sharqiyah North", label: "Al Sharqiyah North" },
+                                    { value: "Al Sharqiyah South", label: "Al Sharqiyah South" },
+                                    { value: "Al Dhahirah", label: "Al Dhahirah" },
+                                    { value: "Al Wusta", label: "Al Wusta" },
+                                    { value: "Al Buraimi", label: "Al Buraimi" },
+                                ]}
+                                value={""}
+                                onChange={() => 1}
+                                error={"error"}
+                            />
                         </CardContent>
                     </Card>
+
 
                     {/* Card 2: Business Info */}
                     <Card className="w-full text-start">
