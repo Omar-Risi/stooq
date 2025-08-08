@@ -257,7 +257,7 @@ export default function SignUp() {
 
                     {/* Submit Button */}
                     <div className="w-full flex justify-end">
-                        <Button type="submit" className="mt-4">Submit</Button>
+                        <Button type="submit" className="mt-4 flex-1 text-white font-bold">Submit</Button>
                     </div>
                 </form>
             </section>
