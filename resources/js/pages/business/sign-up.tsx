@@ -176,54 +176,84 @@ export default function SignUp() {
                             <CardDescription>Tell us about your business</CardDescription>
                         </CardHeader>
                         <CardContent className="space-y-4">
-                            <InputContainer>
-                                <Label htmlFor="business_name">
-                                    Business Name <span className="text-red-500">*</span>
-                                </Label>
-                                <Input required type="text" id="business_name" name="business_name" placeholder="e.g. ScanBite" />
-                            </InputContainer>
 
-                            <InputContainer>
-                                <Label htmlFor="business_age">
-                                    Business Age (years) <span className="text-red-500">*</span>
-                                </Label>
-                                <Input required type="number" id="business_age" name="business_age" placeholder="e.g. 2" />
-                            </InputContainer>
+                            <TextInputContainer
+                                name="business_name"
+                                type="text"
+                                label="Business Name"
+                                placeholder="e.g. ScanBite"
+                                required={true}
+                                value={""}
+                                error={""}
+                                onChange={() => 1}
+                            />
 
-                            <InputContainer>
-                                <Label htmlFor="business_description">
-                                    Description <span className="text-red-500">*</span>
-                                </Label>
-                                <textarea required id="business_description" name="business_description" className="w-full border rounded p-2" rows={4} placeholder="Describe your business..."></textarea>
-                            </InputContainer>
+                            <TextInputContainer
+                                name="business_age"
+                                type="number"
+                                label="Business Age (years)"
+                                placeholder="e.g. 2"
+                                required={true}
+                                value={""}
+                                error={""}
+                                onChange={() => 1}
+                            />
 
-                            <InputContainer>
-                                <Label htmlFor="commercial_registration">Commercial Registration Number (optional)</Label>
-                                <Input type="text" id="commercial_registration" name="commercial_registration" placeholder="Optional" />
-                            </InputContainer>
+                            <TextInputContainer
+                                name="business_description"
+                                type="text"
+                                label="Description"
+                                placeholder="Describe your business..."
+                                required={true}
+                                value={""}
+                                error={""}
+                                onChange={() => 1}
+                            />
 
-                            <InputContainer>
-                                <Label htmlFor="instagram">
-                                    Instagram Handle <span className="text-red-500">*</span>
-                                </Label>
-                                <Input required type="text" id="instagram" name="instagram" placeholder="@yourbusiness" />
-                            </InputContainer>
+                            <TextInputContainer
+                                name="commercial_registration"
+                                type="text"
+                                label="Commercial Registration Number (optional)"
+                                placeholder="Optional"
+                                value={""}
+                                error={""}
+                                onChange={() => 1}
+                            />
 
-                            <InputContainer>
-                                <Label htmlFor="business_logo">
-                                    Business Logo <span className="text-red-500">*</span>
-                                </Label>
-                                <Input required type="file" id="business_logo" name="business_logo" />
-                            </InputContainer>
+                            <TextInputContainer
+                                name="instagram"
+                                type="text"
+                                label="Instagram Handle"
+                                placeholder="@yourbusiness"
+                                required={true}
+                                value={""}
+                                error={""}
+                                onChange={() => 1}
+                            />
 
-                            <InputContainer>
-                                <Label htmlFor="business_banner">
-                                    Business Banner <span className="text-red-500">*</span>
-                                </Label>
-                                <Input required type="file" id="business_banner" name="business_banner" />
-                            </InputContainer>
+                            <TextInputContainer
+                                name="business_logo"
+                                type="file"
+                                label="Business Logo"
+                                required={true}
+                                value={""}
+                                error={""}
+                                onChange={() => 1}
+                            />
+
+                            <TextInputContainer
+                                name="business_banner"
+                                type="file"
+                                label="Business Banner"
+                                required={true}
+                                value={""}
+                                error={""}
+                                onChange={() => 1}
+                            />
+
                         </CardContent>
                     </Card>
+
 
                     {/* Submit Button */}
                     <div className="w-full flex justify-end">
