@@ -6,6 +6,7 @@ import { useForm } from "@inertiajs/react";
 
 import OwnerInfoCard from "@/components/forms/business-sign-up/owner-info";
 import BusinessInfoCard from '@/components/forms/business-sign-up/business-info';
+import { useEffect } from "react";
 
 
 
@@ -15,6 +16,8 @@ export default function SignUp() {
 
     function handleSubmit() { }
 
+
+    useEffect(() => { console.log(translations) })
 
     const { data, setData, post, processing, errors, reset } = useForm({
         owner_name: "",
@@ -62,7 +65,13 @@ export default function SignUp() {
                         setData={setData}
                         translations={translations.sign_up.forms.owner}
                     />
-                    <BusinessInfoCard data={data} errors={errors} setData={setData} />
+
+                    <BusinessInfoCard
+                        data={data}
+                        errors={errors}
+                        setData={setData}
+                        translations={translations.sign_up.forms.business}
+                    />
 
 
                     {/* Submit Button */}

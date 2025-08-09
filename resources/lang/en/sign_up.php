@@ -57,6 +57,41 @@ return [
                 ],
             ],
         ],
+
+        'business' => [
+            'card' => [
+                'title' => 'Business Information',
+                'description' => 'Tell us about your business',
+            ],
+            'name' => [
+                'label' => 'Business Name',
+                'placeholder' => 'e.g. ScanBite',
+            ],
+            'age' => [
+                'label' => 'Business Age (years)',
+                'placeholder' => 'e.g. 2',
+            ],
+            'description' => [
+                'label' => 'Description',
+                'placeholder' => 'Describe your business...',
+            ],
+            'commercial_registration' => [
+                'label' => 'Commercial Registration Number (optional)',
+                'placeholder' => 'Optional',
+            ],
+            'instagram' => [
+                'label' => 'Instagram Handle',
+                'placeholder' => '@yourbusiness',
+            ],
+            'logo' => [
+                'label' => 'Business Logo',
+                'placeholder' => '',
+            ],
+            'banner' => [
+                'label' => 'Business Banner',
+                'placeholder' => '',
+            ],
+        ],
     ],
 ];
 

@@ -5,16 +5,16 @@ export default function BusinessInfoCard({ data, errors, setData, translations }
     return (
         <Card className="w-full text-start">
             <CardHeader>
-                <CardTitle>Business Information</CardTitle>
-                <CardDescription>Tell us about your business</CardDescription>
+                <CardTitle>{translations.card.title}</CardTitle>
+                <CardDescription>{translations.card.description}</CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
 
                 <TextInputContainer
                     name="business_name"
                     type="text"
-                    label="Business Name"
-                    placeholder="e.g. ScanBite"
+                    label={translations.name.label}
+                    placeholder={translations.name.placeholder}
                     required
                     value={data.business_name}
                     error={errors.business_name}
@@ -24,8 +24,8 @@ export default function BusinessInfoCard({ data, errors, setData, translations }
                 <TextInputContainer
                     name="business_age"
                     type="number"
-                    label="Business Age (years)"
-                    placeholder="e.g. 2"
+                    label={translations.age.label}
+                    placeholder={translations.age.placeholder}
                     required
                     value={data.business_age}
                     error={errors.business_age}
@@ -35,8 +35,8 @@ export default function BusinessInfoCard({ data, errors, setData, translations }
                 <TextInputContainer
                     name="business_description"
                     type="text"
-                    label="Description"
-                    placeholder="Describe your business..."
+                    label={translations.description.label}
+                    placeholder={translations.description.placeholder}
                     required
                     value={data.business_description}
                     error={errors.business_description}
@@ -46,8 +46,8 @@ export default function BusinessInfoCard({ data, errors, setData, translations }
                 <TextInputContainer
                     name="commercial_registration"
                     type="text"
-                    label="Commercial Registration Number (optional)"
-                    placeholder="Optional"
+                    label={translations.commercial_registration.label}
+                    placeholder={translations.commercial_registration.placeholder}
                     value={data.commercial_registration}
                     error={errors.commercial_registration}
                     onChange={(val) => setData("commercial_registration", val)}
@@ -56,8 +56,8 @@ export default function BusinessInfoCard({ data, errors, setData, translations }
                 <TextInputContainer
                     name="instagram"
                     type="text"
-                    label="Instagram Handle"
-                    placeholder="@yourbusiness"
+                    label={translations.instagram.label}
+                    placeholder={translations.instagram.placeholder}
                     required
                     value={data.instagram}
                     error={errors.instagram}
@@ -67,7 +67,7 @@ export default function BusinessInfoCard({ data, errors, setData, translations }
                 <TextInputContainer
                     name="business_logo"
                     type="file"
-                    label="Business Logo"
+                    label={translations.logo.label}
                     required
                     value={data.business_logo}
                     error={errors.business_logo}
@@ -77,7 +77,7 @@ export default function BusinessInfoCard({ data, errors, setData, translations }
                 <TextInputContainer
                     name="business_banner"
                     type="file"
-                    label="Business Banner"
+                    label={translations.banner.label}
                     required
                     value={data.business_banner}
                     error={errors.business_banner}
@@ -88,3 +88,4 @@ export default function BusinessInfoCard({ data, errors, setData, translations }
         </Card>
     );
 }
+
