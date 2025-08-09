@@ -56,7 +56,12 @@ export default function SignUp() {
                     encType="multipart/form-data"
                 >
 
-                    <OwnerInfoCard data={data} errors={errors} setData={setData} />
+                    <OwnerInfoCard
+                        data={data}
+                        errors={errors}
+                        setData={setData}
+                        translations={translations.sign_up.forms.owner}
+                    />
                     <BusinessInfoCard data={data} errors={errors} setData={setData} />
 
 

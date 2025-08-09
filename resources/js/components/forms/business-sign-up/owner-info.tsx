@@ -19,16 +19,16 @@ export default function OwnerInfoCard({ data, errors, setData, translations }) {
     return (
         <Card className="w-full text-start">
             <CardHeader>
-                <CardTitle>Your Information</CardTitle>
-                <CardDescription>Provide information about yourself</CardDescription>
+                <CardTitle> {translations.card.title}</CardTitle>
+                <CardDescription>{translations.card.description}</CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
 
                 <TextInputContainer
                     name="owner_name"
                     type="text"
-                    label="Name"
-                    placeholder="John doe..."
+                    label={translations.name.label}
+                    placeholder={translations.name.placeholder}
                     required
                     value={data.owner_name}
                     error={errors.owner_name}
@@ -38,8 +38,8 @@ export default function OwnerInfoCard({ data, errors, setData, translations }) {
                 <TextInputContainer
                     name="owner_age"
                     type="number"
-                    label="Age"
-                    placeholder="Your age"
+                    label={translations.age.label}
+                    placeholder={translations.age.placeholder}
                     required
                     value={data.owner_age}
                     error={errors.owner_age}
@@ -49,8 +49,8 @@ export default function OwnerInfoCard({ data, errors, setData, translations }) {
                 <TextInputContainer
                     name="owner_id"
                     type="number"
-                    label="ID number"
-                    placeholder="Your id number"
+                    label={translations.id_number.label}
+                    placeholder={translations.id_number.placeholder}
                     required
                     value={data.owner_id}
                     error={errors.owner_id}
@@ -59,11 +59,11 @@ export default function OwnerInfoCard({ data, errors, setData, translations }) {
 
                 <RadioInputContainer
                     name="education_level"
-                    label="Education Level"
+                    label={translations.education_level.label}
                     required
                     options={[
-                        { label: "School", value: "school" },
-                        { label: "Higher Education", value: "higher_education" },
+                        { label: translations.education_level.options.school, value: "school" },
+                        { label: translations.education_level.options.higher_education, value: "higher_education" },
                     ]}
                     value={data.education_level}
                     onChange={(val) => setData("education_level", val)}
@@ -73,8 +73,8 @@ export default function OwnerInfoCard({ data, errors, setData, translations }) {
                 <TextInputContainer
                     name="institute_name"
                     type="text"
-                    label="Educational institute name"
-                    placeholder="GUtech"
+                    label={translations.institute_name.label}
+                    placeholder={translations.institute_name.placeholder}
                     required
                     value={data.institute_name}
                     error={errors.institute_name}
@@ -84,8 +84,8 @@ export default function OwnerInfoCard({ data, errors, setData, translations }) {
                 <TextInputContainer
                     name="phone_number"
                     type="text"
-                    label="Phone number"
-                    placeholder="+968 92345678"
+                    label={translations.phone_number.label}
+                    placeholder={translations.phone_number.placeholder}
                     required
                     value={data.phone_number}
                     error={errors.phone_number}
@@ -95,8 +95,8 @@ export default function OwnerInfoCard({ data, errors, setData, translations }) {
                 <TextInputContainer
                     name="email"
                     type="email"
-                    label="Email"
-                    placeholder="youremail@business.com"
+                    label={translations.email.label}
+                    placeholder={translations.email.placeholder}
                     required
                     value={data.email}
                     error={errors.email}
@@ -105,20 +105,20 @@ export default function OwnerInfoCard({ data, errors, setData, translations }) {
 
                 <SelectContainer
                     name="governorate"
-                    label="Governorate in Oman"
+                    label={translations.governorate.label}
                     required
                     options={[
-                        { value: "Muscat", label: "Muscat" },
-                        { value: "Dhofar", label: "Dhofar" },
-                        { value: "Musandam", label: "Musandam" },
-                        { value: "Al Batinah North", label: "Al Batinah North" },
-                        { value: "Al Batinah South", label: "Al Batinah South" },
-                        { value: "Al Dakhiliyah", label: "Al Dakhiliyah" },
-                        { value: "Al Sharqiyah North", label: "Al Sharqiyah North" },
-                        { value: "Al Sharqiyah South", label: "Al Sharqiyah South" },
-                        { value: "Al Dhahirah", label: "Al Dhahirah" },
-                        { value: "Al Wusta", label: "Al Wusta" },
-                        { value: "Al Buraimi", label: "Al Buraimi" },
+                        { value: translations.governorate.options.muscat, label: "Muscat" },
+                        { value: translations.governorate.options.dhofar, label: "Dhofar" },
+                        { value: translations.governorate.options.musandam, label: "Musandam" },
+                        { value: translations.governorate.options.al_batinah_north, label: "Al Batinah North" },
+                        { value: translations.governorate.options.al_batinah_south, label: "Al Batinah South" },
+                        { value: translations.governorate.options.al_dakhiliya, label: "Al Dakhiliyah" },
+                        { value: translations.governorate.options.al_sharqiyah_north, label: "Al Sharqiyah North" },
+                        { value: translations.governorate.options.al_sharqiyah_south, label: "Al Sharqiyah South" },
+                        { value: translations.governorate.options.al_dhahirah, label: "Al Dhahirah" },
+                        { value: translations.governorate.options.al_wusta, label: "Al Wusta" },
+                        { value: translations.governorate.al_buraimi, label: "Al Buraimi" },
                     ]}
                     value={data.governorate}
                     onChange={(val) => setData("governorate", val)}
