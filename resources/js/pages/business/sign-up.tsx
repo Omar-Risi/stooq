@@ -54,8 +54,8 @@ export default function SignUp() {
         business_description: "",
         commercial_registration: "",
         instagram: "",
-        business_logo: null,
-        business_banner: null,
+        business_logo: undefined,
+        business_banner: undefined,
     });
 
     usePersistedFormState("ownerFormData", data, setData);
