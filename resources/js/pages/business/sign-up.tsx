@@ -9,6 +9,29 @@ import BusinessInfoCard from '@/components/forms/business-sign-up/business-info'
 import { useEffect } from "react";
 
 
+function usePersistedFormState(key: string, data: any, setData: (name: string, value: any) => void) {
+    // Load from sessionStorage when component mounts
+    useEffect(() => {
+        const saved = sessionStorage.getItem(key);
+        if (saved) {
+            try {
+                const parsed = JSON.parse(saved);
+                for (const [name, value] of Object.entries(parsed)) {
+                    setData(name, value);
+                }
+            } catch {
+                console.warn("Invalid saved form data");
+            }
+        }
+    }, [key, setData]);
+
+    // Save to sessionStorage when data changes
+    useEffect(() => {
+        const { business_logo, business_banner, ...rest } = data;
+        sessionStorage.setItem(key, JSON.stringify(rest));
+    }, [key, data]);
+}
+
 
 export default function SignUp() {
 
@@ -16,8 +39,6 @@ export default function SignUp() {
 
     function handleSubmit() { }
 
-
-    useEffect(() => { console.log(translations) })
 
     const { data, setData, post, processing, errors, reset } = useForm({
         owner_name: "",
@@ -36,6 +57,8 @@ export default function SignUp() {
         business_logo: null,
         business_banner: null,
     });
+
+    usePersistedFormState("ownerFormData", data, setData);
 
     return (
         <div dir={direction} className="h-full w-full">
