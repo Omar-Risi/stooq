@@ -4,24 +4,9 @@ import Button from "@/components/front/button";
 import { useForm } from "@inertiajs/react";
 
 
-import {
-    Card,
-    CardAction,
-    CardContent,
-    CardDescription,
-    CardFooter,
-    CardHeader,
-    CardTitle,
-} from "@/components/ui/card"
-
 import OwnerInfoCard from "@/components/forms/business-sign-up/owner-info";
 import BusinessInfoCard from '@/components/forms/business-sign-up/business-info';
 
-import {
-    TextInputContainer,
-    RadioInputContainer,
-    SelectContainer
-} from "@/components/forms/input-container";
 
 
 export default function SignUp() {
