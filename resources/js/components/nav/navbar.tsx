@@ -22,9 +22,6 @@ export default function NavBar({ className }: NavBarProps) {
     const { translations, locale } = usePage().props;
 
 
-    useEffect(() => {
-        console.log({ locale, translations })
-    })
 
     function toggleLang() {
         router.post(route('switch.lang', { locale: (locale == 'en') ? 'ar' : 'en' }), { preserveScroll: true })
