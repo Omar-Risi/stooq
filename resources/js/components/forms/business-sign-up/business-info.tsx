@@ -1,13 +1,7 @@
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { TextInputContainer } from "@/components/forms/input-container";
 
-type BusinessInfoCardProps = {
-    data: Record<string, any>;
-    errors: Record<string, string>;
-    setData: (field: string, value: any) => void;
-};
-
-export default function BusinessInfoCard({ data, errors, setData }: BusinessInfoCardProps) {
+export default function BusinessInfoCard({ data, errors, setData, translations }) {
     return (
         <Card className="w-full text-start">
             <CardHeader>

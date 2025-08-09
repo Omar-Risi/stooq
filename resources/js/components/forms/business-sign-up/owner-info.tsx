@@ -14,13 +14,8 @@ import {
     SelectContainer
 } from "@/components/forms/input-container";
 
-type OwnerInfoCardProps = {
-    data: Record<string, any>;
-    errors: Record<string, string>;
-    setData: (field: string, value: any) => void;
-};
 
-export default function OwnerInfoCard({ data, errors, setData }: OwnerInfoCardProps) {
+export default function OwnerInfoCard({ data, errors, setData, translations }) {
     return (
         <Card className="w-full text-start">
             <CardHeader>
