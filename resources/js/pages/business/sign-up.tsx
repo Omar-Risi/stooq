@@ -57,6 +57,7 @@ export default function SignUp() {
         instagram: "",
         business_logo: undefined,
         business_banner: undefined,
+        products: [{}]
     });
 
     usePersistedFormState("ownerFormData", data, setData);
