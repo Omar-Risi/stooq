@@ -48,6 +48,7 @@ export default function ProductsCard({ data, errors, setData, translations }) {
                         setData={setData}
                         products={data.products}
                         onRemove={() => handleRemoveProduct(index)}
+                        translations={translations}
                     />
                 ))}
 

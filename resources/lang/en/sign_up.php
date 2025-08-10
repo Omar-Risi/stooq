@@ -92,12 +92,35 @@ return [
                 'placeholder' => '',
             ],
         ],
+
         'products' => [
             'card' => [
                 'title' => 'Products',
-                'description' => 'Add your products maximum of 10'
-            ]
-        ]
+                'description' => 'Add your products (maximum of 10)',
+            ],
+            'name' => [
+                'label' => 'Product Name',
+                'placeholder' => 'Black headset',
+            ],
+            'price' => [
+                'label' => 'Price (OMR)',
+                'placeholder' => '15.00',
+            ],
+            'quantity' => [
+                'label' => 'Product Quantity',
+                'placeholder' => '10',
+            ],
+            'image' => [
+                'label' => 'Product Image',
+                'placeholder' => '',
+            ],
+            'delete_dialog' => [
+                'title' => 'Delete product?',
+                'description' => 'This action cannot be undone. This will permanently remove the product from your list.',
+                'cancel' => 'Cancel',
+                'confirm' => 'Delete',
+            ],
+        ],
     ],
 ];
 

@@ -24,7 +24,7 @@ interface Product {
     name: string;
     price: string;
     quantity: string;
-    image: File | null;
+    image: string | undefined;
 }
 
 interface ProductContainerProps {
@@ -34,15 +34,29 @@ interface ProductContainerProps {
     errors: Record<string, any>;
     setData: (key: string, value: any) => void;
     onRemove: () => void;
+    translations: {
+        card: { title: string };
+        name: { label: string; placeholder: string };
+        price: { label: string; placeholder: string };
+        quantity: { label: string; placeholder: string };
+        image: { label: string };
+        actions: {
+            delete_title: string;
+            delete_description: string;
+            cancel: string;
+            delete: string;
+        };
+    };
 }
 
-export default function ProductContainer({
+function ProductContainer({
     index,
     product,
     products,
     errors,
     setData,
     onRemove,
+    translations,
 }: ProductContainerProps) {
     const updateProduct = (field: keyof Product, value: any) => {
         setData(
@@ -54,7 +68,9 @@ export default function ProductContainer({
     return (
         <Card className="border-2 shadow-none">
             <CardHeader className="flex justify-between items-center">
-                <CardTitle className="text-sm">Product {index + 1}</CardTitle>
+                <CardTitle className="text-sm">
+                    {`${translations.card.title} ${index + 1}`}
+                </CardTitle>
 
                 {/* AlertDialog for delete confirmation */}
                 <AlertDialog>
@@ -70,14 +86,20 @@ export default function ProductContainer({
                     </AlertDialogTrigger>
                     <AlertDialogContent>
                         <AlertDialogHeader>
-                            <AlertDialogTitle>Delete product?</AlertDialogTitle>
+                            <AlertDialogTitle>
+                                {translations.delete_dialog.title}
+                            </AlertDialogTitle>
                             <AlertDialogDescription>
-                                This action cannot be undone. This will permanently remove the product from your list.
+                                {translations.delete_dialog.description}
                             </AlertDialogDescription>
                         </AlertDialogHeader>
                         <AlertDialogFooter>
-                            <AlertDialogCancel>Cancel</AlertDialogCancel>
-                            <AlertDialogAction onClick={onRemove}>Delete</AlertDialogAction>
+                            <AlertDialogCancel>
+                                {translations.delete_dialog.cancel}
+                            </AlertDialogCancel>
+                            <AlertDialogAction onClick={onRemove}>
+                                {translations.delete_dialog.confirm}
+                            </AlertDialogAction>
                         </AlertDialogFooter>
                     </AlertDialogContent>
                 </AlertDialog>
@@ -87,8 +109,8 @@ export default function ProductContainer({
                 <TextInputContainer
                     name={`products[${index}].name`}
                     type="text"
-                    label="Product name"
-                    placeholder="black headset"
+                    label={translations.name.label}
+                    placeholder={translations.name.placeholder}
                     required
                     value={product.name || ""}
                     error={errors[`products.${index}.name`]}
@@ -98,8 +120,8 @@ export default function ProductContainer({
                 <TextInputContainer
                     name={`products[${index}].price`}
                     type="number"
-                    label="Price (OMR)"
-                    placeholder="15.00"
+                    label={translations.price.label}
+                    placeholder={translations.price.placeholder}
                     required
                     value={product.price || ""}
                     error={errors[`products.${index}.price`]}
@@ -109,8 +131,8 @@ export default function ProductContainer({
                 <TextInputContainer
                     name={`products[${index}].quantity`}
                     type="number"
-                    label="Product quantity"
-                    placeholder="10"
+                    label={translations.quantity.label}
+                    placeholder={translations.quantity.placeholder}
                     required
                     value={product.quantity || ""}
                     error={errors[`products.${index}.quantity`]}
@@ -120,7 +142,7 @@ export default function ProductContainer({
                 <TextInputContainer
                     name={`products[${index}].image`}
                     type="file"
-                    label="Product image"
+                    label={translations.image.label}
                     required
                     value={product.image || ""}
                     error={errors[`products.${index}.image`]}
@@ -131,6 +153,5 @@ export default function ProductContainer({
     );
 }
 
-export {
-    ProductContainer
-}
+export { ProductContainer };
+
