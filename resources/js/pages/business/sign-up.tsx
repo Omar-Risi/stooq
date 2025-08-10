@@ -7,6 +7,7 @@ import { useForm } from "@inertiajs/react";
 import OwnerInfoCard from "@/components/forms/business-sign-up/owner-info";
 import BusinessInfoCard from '@/components/forms/business-sign-up/business-info';
 import { useEffect } from "react";
+import ProductsCard from "@/components/forms/business-sign-up/products";
 
 
 function usePersistedFormState(key: string, data: any, setData: (name: string, value: any) => void) {
@@ -94,6 +95,13 @@ export default function SignUp() {
                         errors={errors}
                         setData={setData}
                         translations={translations.sign_up.forms.business}
+                    />
+
+                    <ProductsCard
+                        data={data}
+                        errors={errors}
+                        setData={setData}
+                        translations={translations.sign_up.forms.products}
                     />
 
 

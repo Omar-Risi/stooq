@@ -92,6 +92,12 @@ return [
                 'placeholder' => '',
             ],
         ],
+        'products' => [
+            'card' => [
+                'title' => 'Products',
+                'description' => 'Add your products maximum of 10'
+            ]
+        ]
     ],
 ];
 
