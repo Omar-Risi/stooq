@@ -10,7 +10,7 @@ return [
     ],
     'pricing' => [
         'headline' => 'Flexible pricing for every type of business',
-        'sub_headline' => 'Our pricing model is designed to fit every type of business whether you are just starting or you already have clients.'
+        'sub_headline' => 'Starting at just OMR 5 per month you will have access to sell your products on STOOQ and gain benefits.'
 
     ],
     'benefits' => [
