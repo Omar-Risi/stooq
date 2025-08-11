@@ -1,5 +1,5 @@
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
-import { TextInputContainer, PrefixInputContainer } from "@/components/forms/input-container";
+import { TextInputContainer, PrefixInputContainer, FileInputContainer } from "@/components/forms/input-container";
 
 
 export default function BusinessInfoCard({ data, errors, setData, translations }) {
@@ -67,7 +67,7 @@ export default function BusinessInfoCard({ data, errors, setData, translations }
                 />
 
 
-                <TextInputContainer
+                <FileInputContainer
                     name="business_logo"
                     type="file"
                     label={translations.logo.label}
@@ -75,9 +75,10 @@ export default function BusinessInfoCard({ data, errors, setData, translations }
                     value={data.business_logo}
                     error={errors.business_logo}
                     onChange={(val) => setData("business_logo", val)}
+                    accept=".jpg,.jpeg,.png,image/jpeg,image/png"
                 />
 
-                <TextInputContainer
+                <FileInputContainer
                     name="business_banner"
                     type="file"
                     label={translations.banner.label}
@@ -85,6 +86,7 @@ export default function BusinessInfoCard({ data, errors, setData, translations }
                     value={data.business_banner}
                     error={errors.business_banner}
                     onChange={(val) => setData("business_banner", val)}
+                    accept=".jpg,.jpeg,.png,image/jpeg,image/png"
                 />
 
             </CardContent>

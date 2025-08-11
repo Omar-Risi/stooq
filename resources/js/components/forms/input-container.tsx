@@ -44,6 +44,55 @@ function TextInputContainer({
     );
 }
 
+type FileInputContainerProps = {
+    name: string;
+    label: string;
+    type?: string;
+    placeholder?: string;
+    required?: boolean;
+    value: string;
+    onChange: (value: string) => void;
+    error?: string;
+    accept?: string;
+};
+
+function FileInputContainer({
+    label,
+    name,
+    type = "text",
+    placeholder,
+    required = false,
+    value,
+    onChange,
+    error,
+    accept
+}: FileInputContainerProps) {
+    return (
+        <div className="flex flex-col mt-4">
+            <Label htmlFor={name} className="">
+                {label}
+                {required && <span className="text-red-500">*</span>}
+                &nbsp;
+                ({accept})
+            </Label>
+            <Input
+                id={name}
+                name={name}
+                type={type}
+                placeholder={placeholder}
+                required={required}
+                value={value}
+                onChange={(e) => onChange(e.target.value)}
+                className="mt-2"
+                accept={accept}
+            />
+            {error && <p className="text-sm text-red-500 mt-1">{error}</p>}
+        </div>
+    );
+}
+
+
+
 type PrefixInputContainerProps = {
     name: string;
     label: string;
@@ -207,6 +256,7 @@ function SelectContainer({
 
 export {
     TextInputContainer,
+    FileInputContainer,
     PrefixInputContainer,
     RadioInputContainer,
     SelectContainer
