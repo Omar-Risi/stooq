@@ -1,5 +1,6 @@
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
-import { TextInputContainer } from "@/components/forms/input-container";
+import { TextInputContainer, PrefixInputContainer } from "@/components/forms/input-container";
+
 
 export default function BusinessInfoCard({ data, errors, setData, translations }) {
     return (
@@ -53,16 +54,18 @@ export default function BusinessInfoCard({ data, errors, setData, translations }
                     onChange={(val) => setData("commercial_registration", val)}
                 />
 
-                <TextInputContainer
+                <PrefixInputContainer
                     name="instagram"
                     type="text"
                     label={translations.instagram.label}
                     placeholder={translations.instagram.placeholder}
+                    prefix="@"
                     required
                     value={data.instagram}
                     error={errors.instagram}
                     onChange={(val) => setData("instagram", val)}
                 />
+
 
                 <TextInputContainer
                     name="business_logo"

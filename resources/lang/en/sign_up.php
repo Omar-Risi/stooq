@@ -103,7 +103,7 @@ return [
                 'placeholder' => 'Black headset',
             ],
             'price' => [
-                'label' => 'Price (OMR)',
+                'label' => 'Price',
                 'placeholder' => '15.00',
             ],
             'quantity' => [

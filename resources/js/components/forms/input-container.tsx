@@ -44,6 +44,61 @@ function TextInputContainer({
     );
 }
 
+type PrefixInputContainerProps = {
+    name: string;
+    label: string;
+    prefix: string;
+    type?: string;
+    placeholder?: string;
+    required?: boolean;
+    value: string;
+    onChange: (value: string) => void;
+    error?: string;
+};
+
+function PrefixInputContainer({
+    name,
+    label,
+    prefix,
+    type = "text",
+    placeholder,
+    required = false,
+    value,
+    onChange,
+    error,
+}: PrefixInputContainerProps) {
+    return (
+        <div className="flex flex-col mt-4">
+            <Label htmlFor={name}>
+                {label}
+                {required && <span className="text-red-500">*</span>}
+            </Label>
+
+            <div className="flex mt-2">
+                {/* Prefix box */}
+                <span className="inline-flex items-center px-3 ltr:rounded-l-md rtl:rounded-r-md border border-input bg-muted text-gray-500 text-sm">
+                    {prefix}
+                </span>
+
+                {/* Input field */}
+                <Input
+                    id={name}
+                    name={name}
+                    type={type}
+                    placeholder={placeholder}
+                    required={required}
+                    value={value}
+                    onChange={(e) => onChange(e.target.value)}
+                    className="ltr:rounded-l-none rtl:rounded-r-none"
+                />
+            </div>
+
+            {error && <p className="text-sm text-red-500 mt-1">{error}</p>}
+        </div>
+    );
+}
+
+
 type RadioOption = {
     label: string;
     value: string;
@@ -152,6 +207,7 @@ function SelectContainer({
 
 export {
     TextInputContainer,
+    PrefixInputContainer,
     RadioInputContainer,
     SelectContainer
 }

@@ -6,7 +6,7 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Trash } from "lucide-react";
-import { TextInputContainer } from "./input-container";
+import { TextInputContainer, PrefixInputContainer } from "./input-container";
 
 import {
     AlertDialog,
@@ -117,7 +117,8 @@ function ProductContainer({
                     onChange={(val) => updateProduct("name", val)}
                 />
 
-                <TextInputContainer
+                <PrefixInputContainer
+                    prefix="OMR"
                     name={`products[${index}].price`}
                     type="number"
                     label={translations.price.label}
