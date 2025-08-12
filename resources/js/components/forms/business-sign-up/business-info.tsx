@@ -1,7 +1,6 @@
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { TextInputContainer, PrefixInputContainer, FileInputContainer } from "@/components/forms/input-container";
 
-
 export default function BusinessInfoCard({ data, errors, setData, translations }) {
     return (
         <Card className="w-full text-start">
@@ -12,76 +11,75 @@ export default function BusinessInfoCard({ data, errors, setData, translations }
             <CardContent className="space-y-4">
 
                 <TextInputContainer
-                    name="business_name"
+                    name="business.name"
                     type="text"
                     label={translations.name.label}
                     placeholder={translations.name.placeholder}
                     required
-                    value={data.business_name}
-                    error={errors.business_name}
-                    onChange={(val) => setData("business_name", val)}
+                    value={data.business.name}
+                    error={errors.business?.name}
+                    onChange={(val) => setData("business.name", val)}
                 />
 
                 <TextInputContainer
-                    name="business_age"
+                    name="business.age"
                     type="number"
                     label={translations.age.label}
                     placeholder={translations.age.placeholder}
                     required
-                    value={data.business_age}
-                    error={errors.business_age}
-                    onChange={(val) => setData("business_age", val)}
+                    value={data.business.age}
+                    error={errors.business?.age}
+                    onChange={(val) => setData("business.age", val)}
                 />
 
                 <TextInputContainer
-                    name="business_description"
+                    name="business.description"
                     type="text"
                     label={translations.description.label}
                     placeholder={translations.description.placeholder}
                     required
-                    value={data.business_description}
-                    error={errors.business_description}
-                    onChange={(val) => setData("business_description", val)}
+                    value={data.business.description}
+                    error={errors.business?.description}
+                    onChange={(val) => setData("business.description", val)}
                 />
 
                 <TextInputContainer
-                    name="commercial_registration"
+                    name="business.commercial_registration"
                     type="text"
                     label={translations.commercial_registration.label}
                     placeholder={translations.commercial_registration.placeholder}
-                    value={data.commercial_registration}
-                    error={errors.commercial_registration}
-                    onChange={(val) => setData("commercial_registration", val)}
+                    value={data.business.commercial_registration}
+                    error={errors.business?.commercial_registration}
+                    onChange={(val) => setData("business.commercial_registration", val)}
                 />
 
                 <PrefixInputContainer
-                    name="instagram"
+                    name="business.instagram_handle"
                     type="text"
                     label={translations.instagram.label}
                     placeholder={translations.instagram.placeholder}
                     prefix="@"
                     required
-                    value={data.instagram_handle}
-                    error={errors.instagram_handle}
-                    onChange={(val) => setData("instagram_handle", val)}
+                    value={data.business.instagram_handle}
+                    error={errors.business?.instagram_handle}
+                    onChange={(val) => setData("business.instagram_handle", val)}
                 />
 
-
                 <FileInputContainer
-                    name="business_logo"
+                    name="business.logo"
                     label={translations.logo.label}
                     required
-                    error={errors.business_logo}
-                    onChange={(val) => setData("business_logo", val)}
+                    error={errors.business?.logo}
+                    onChange={(val) => setData("business.logo", val)}
                     accept=".jpg,.jpeg,.png,image/jpeg,image/png"
                 />
 
                 <FileInputContainer
-                    name="business_banner"
+                    name="business.banner"
                     label={translations.banner.label}
                     required
-                    error={errors.business_banner}
-                    onChange={(val) => setData("business_banner", val)}
+                    error={errors.business?.banner}
+                    onChange={(val) => setData("business.banner", val)}
                     accept=".jpg,.jpeg,.png,image/jpeg,image/png"
                 />
 

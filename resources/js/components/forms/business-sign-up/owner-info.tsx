@@ -1,12 +1,10 @@
 import {
     Card,
-    CardAction,
     CardContent,
     CardDescription,
-    CardFooter,
     CardHeader,
     CardTitle,
-} from "@/components/ui/card"
+} from "@/components/ui/card";
 
 import {
     TextInputContainer,
@@ -14,97 +12,96 @@ import {
     SelectContainer
 } from "@/components/forms/input-container";
 
-
 export default function OwnerInfoCard({ data, errors, setData, translations }) {
     return (
         <Card className="w-full text-start">
             <CardHeader>
-                <CardTitle> {translations.card.title}</CardTitle>
+                <CardTitle>{translations.card.title}</CardTitle>
                 <CardDescription>{translations.card.description}</CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
 
                 <TextInputContainer
-                    name="owner_name"
+                    name="owner.name"
                     type="text"
                     label={translations.name.label}
                     placeholder={translations.name.placeholder}
                     required
-                    value={data.owner_name}
-                    error={errors.owner_name}
-                    onChange={(val) => setData("owner_name", val)}
+                    value={data.owner.name}
+                    error={errors.owner?.name}
+                    onChange={(val) => setData("owner.name", val)}
                 />
 
                 <TextInputContainer
-                    name="owner_age"
+                    name="owner.age"
                     type="number"
                     label={translations.age.label}
                     placeholder={translations.age.placeholder}
                     required
-                    value={data.owner_age}
-                    error={errors.owner_age}
-                    onChange={(val) => setData("owner_age", val)}
+                    value={data.owner.age}
+                    error={errors.owner?.age}
+                    onChange={(val) => setData("owner.age", val)}
                 />
 
                 <TextInputContainer
-                    name="owner_id"
+                    name="owner.id_number"
                     type="number"
                     label={translations.id_number.label}
                     placeholder={translations.id_number.placeholder}
                     required
-                    value={data.owner_id}
-                    error={errors.owner_id}
-                    onChange={(val) => setData("owner_id", val)}
+                    value={data.owner.resident_id}
+                    error={errors.owner?.resident_id}
+                    onChange={(val) => setData("owner.resident_id", val)}
                 />
 
                 <RadioInputContainer
-                    name="education_level"
+                    name="owner.education_level"
                     label={translations.education_level.label}
                     required
                     options={[
                         { label: translations.education_level.options.school, value: "school" },
                         { label: translations.education_level.options.higher_education, value: "higher_education" },
                     ]}
-                    value={data.education_level}
-                    onChange={(val) => setData("education_level", val)}
-                    error={errors.education_level}
+                    value={data.owner.education_level}
+                    onChange={(val) => setData("owner.education_level", val)}
+                    error={errors.owner?.education_level}
                 />
 
                 <TextInputContainer
-                    name="institute_name"
+                    name="owner.institute_name"
                     type="text"
                     label={translations.institute_name.label}
                     placeholder={translations.institute_name.placeholder}
                     required
-                    value={data.institute_name}
-                    error={errors.institute_name}
-                    onChange={(val) => setData("institute_name", val)}
+                    value={data.owner.institute_name}
+                    error={errors.owner?.institute_name}
+                    onChange={(val) => setData("owner.institute_name", val)}
                 />
 
                 <TextInputContainer
-                    name="phone_number"
+                    name="owner.phone_number"
                     type="text"
                     label={translations.phone_number.label}
                     placeholder={translations.phone_number.placeholder}
                     required
-                    value={data.phone_number}
-                    error={errors.phone_number}
-                    onChange={(val) => setData("phone_number", val)}
+                    value={data.owner.phone_number}
+                    error={errors.owner?.phone_number}
+                    onChange={(val) => setData("owner.phone_number", val)}
                 />
 
                 <TextInputContainer
-                    name="email"
+                    name="owner.email"
                     type="email"
                     label={translations.email.label}
                     placeholder={translations.email.placeholder}
                     required
-                    value={data.email}
-                    error={errors.email}
-                    onChange={(val) => setData("email", val)}
+                    value={data.owner.email}
+                    error={errors.owner?.email}
+                    onChange={(val) => setData("owner.email", val)}
                 />
 
                 <SelectContainer
-                    name="governorate"
+                    name="owner.governorate"
                     label={translations.governorate.label}
                     required
                     options={[
@@ -118,14 +115,15 @@ export default function OwnerInfoCard({ data, errors, setData, translations }) {
                         { value: translations.governorate.options.al_sharqiyah_south, label: "Al Sharqiyah South" },
                         { value: translations.governorate.options.al_dhahirah, label: "Al Dhahirah" },
                         { value: translations.governorate.options.al_wusta, label: "Al Wusta" },
-                        { value: translations.governorate.al_buraimi, label: "Al Buraimi" },
+                        { value: translations.governorate.options.al_buraimi, label: "Al Buraimi" },
                     ]}
-                    value={data.governorate}
-                    onChange={(val) => setData("governorate", val)}
-                    error={errors.governorate}
+                    value={data.owner.governorate}
+                    onChange={(val) => setData("owner.governorate", val)}
+                    error={errors.owner?.governorate}
                 />
 
             </CardContent>
         </Card>
     );
 }
+

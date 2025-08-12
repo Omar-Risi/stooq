@@ -10,32 +10,13 @@ import BusinessInfoCard from '@/components/forms/business-sign-up/business-info'
 import { useEffect } from "react";
 import ProductsCard from "@/components/forms/business-sign-up/products";
 
-type dataTypes = {
-    owner_name: string;
-    owner_age: string | number;
-    owner_id: number;
-    education_level: string;
-    institute_name: string;
-    phone_number: string | number;
-    email: string;
-    governorate: string;
-    business_name: string;
-    business_age: number | string;
-    business_description: string;
-    commercial_registration?: string | number;
-    instagram_handle: string;
-    business_logo: string;
-    business_banner: string;
-    products: unknown[];
-
-}
 
 export default function SignUp() {
 
     const { direction, translations } = usePage().props;
 
 
-    function usePersistedFormState(key: string, data: dataTypes, setData: (name: string, value: any) => void) {
+    function usePersistedFormState(key: string, data: any, setData: (name: string, value: any) => void) {
         // Load from sessionStorage when component mounts
         useEffect(() => {
             const saved = sessionStorage.getItem(key);
@@ -53,29 +34,32 @@ export default function SignUp() {
 
         // Save to sessionStorage when data changes
         useEffect(() => {
-            const { business_logo, business_banner, ...rest } = data;
-            sessionStorage.setItem(key, JSON.stringify(rest));
+            sessionStorage.setItem(key, JSON.stringify(data));
         }, [key, data]);
     }
 
 
 
     const { data, setData, post, processing, errors, reset } = useForm({
-        owner_name: "",
-        owner_age: "",
-        owner_id: "",
-        education_level: "",
-        institute_name: "",
-        phone_number: "",
-        email: "",
-        governorate: "",
-        business_name: "",
-        business_age: "",
-        business_description: "",
-        commercial_registration: "",
-        instagram_handle: "",
-        business_logo: "",
-        business_banner: "",
+        owner: {
+            name: "",
+            age: "",
+            resident_id: "",
+            education_level: "",
+            institute_name: "",
+            phone_number: "",
+            email: "",
+            governorate: "",
+        },
+        business: {
+            name: "",
+            age: "",
+            description: "",
+            commercial_registration: "",
+            instagram_handle: "",
+            logo: "",
+            banner: "",
+        },
         products: []
     });
 

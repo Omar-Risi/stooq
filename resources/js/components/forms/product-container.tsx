@@ -156,6 +156,7 @@ function ProductContainer({
                 <FileInputContainer
                     name={`products[${index}].image`}
                     label={translations.image.label}
+                    accept=".jpg,.jpeg,.png,image/jpeg,image/png"
                     required
                     error={errors[`products.${index}.image`]}
                     onChange={(val) => updateProduct("image", val)}
