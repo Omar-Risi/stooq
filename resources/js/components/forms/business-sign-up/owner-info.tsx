@@ -9,7 +9,8 @@ import {
 import {
     TextInputContainer,
     RadioInputContainer,
-    SelectContainer
+    SelectContainer,
+    PrefixInputContainer
 } from "@/components/forms/input-container";
 
 export default function OwnerInfoCard({ data, errors, setData, translations }) {
@@ -78,9 +79,10 @@ export default function OwnerInfoCard({ data, errors, setData, translations }) {
                     onChange={(val) => setData("owner.institute_name", val)}
                 />
 
-                <TextInputContainer
+                <PrefixInputContainer
                     name="owner.phone_number"
-                    type="text"
+                    prefix="+968"
+                    type="number"
                     label={translations.phone_number.label}
                     placeholder={translations.phone_number.placeholder}
                     required

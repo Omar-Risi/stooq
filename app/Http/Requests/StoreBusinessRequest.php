@@ -22,21 +22,31 @@ class StoreBusinessRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'owner_name' => 'required|string|max:255',
-            'owner_age' => 'required|integer|min:18',
-            'owner_id' => 'required|string|max:20',
-            'education_level' => 'nullable|string|max:255',
-            'institute_name' => 'nullable|string|max:255',
-            'phone_number' => 'required|string|max:20',
-            'email' => 'required|email|max:255',
-            'governorate' => 'required|string|max:255',
-            'business_name' => 'required|string|max:255',
-            'business_age' => 'required|integer|min:0',
-            'business_description' => 'nullable|string',
-            'commercial_registration' => 'nullable|string|max:255',
-            'instagram_handle' => 'nullable|string|max:255',
-            'business_logo' => 'nullable|image|file|mimes:jpg,jpeg,png,heic,heif|max:2048',
-            'business_banner' => 'nullable|image|file|mimes:jpg,jpeg,png,heic,heif|max:4096',
-            'products' => 'nullable|array'];
+            // Owner
+            'owner.name' => ['required', 'string', 'max:255'],
+            'owner.age' => ['required', 'integer', 'min:18'], // adjust min age if needed
+            'owner.resident_id' => ['required', 'string', 'max:50'], // or use regex for ID format
+            'owner.education_level' => ['required', 'string', 'max:255'],
+            'owner.institute_name' => ['required', 'string', 'max:255'],
+            'owner.phone_number' => ['required', 'number', 'regex:/^(\+968)?[0-9]{8}$/'], // Oman phone format example
+            'owner.email' => ['required', 'email', 'max:255'],
+            'owner.governorate' => ['required', 'string'],
+
+            // Business
+            'business.name' => ['required', 'string', 'max:255'],
+            'business.age' => ['required', 'integer', 'min:0'], // in years
+            'business.description' => ['required', 'string'],
+            'business.commercial_registration' => ['nullable', 'string', 'max:100'],
+            'business.instagram_handle' => ['nullable', 'string', 'max:50', 'regex:/^[A-Za-z0-9._]+$/'],
+            'business.logo' => ['required', 'image', 'mimes:jpg,jpeg,png', 'max:2048'],
+            'business.banner' => ['required', 'image', 'mimes:jpg,jpeg,png,heic', 'max:4096'],
+
+            // Products array
+            'products' => ['array'],
+            'products.*.name' => ['required', 'string', 'max:255'],
+            'products.*.price' => ['required', 'numeric', 'min:0'],
+            'products.*.description' => ['nullable', 'string'],
+            'business.*.image' => ['required', 'image', 'mimes:jpg,jpeg,png,heic', 'max:2048'],
+        ];
     }
 }
