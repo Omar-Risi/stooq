@@ -121,8 +121,8 @@ function ProductContainer({
                 <TextInputContainer
                     name={`products[${index}].description`}
                     type="text"
-                    label={translations.name.label}
-                    placeholder={translations.name.placeholder}
+                    label={translations.description.label}
+                    placeholder={translations.description.placeholder}
                     required
                     value={product.description || ""}
                     error={errors[`products.${index}.description`]}

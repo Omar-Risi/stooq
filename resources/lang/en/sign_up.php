@@ -102,6 +102,10 @@ return [
                 'label' => 'Product Name',
                 'placeholder' => 'Black headset',
             ],
+            'description' => [
+                'label' => 'Product description',
+                'placeholder' => 'Made with high quality materials this...',
+            ],
             'price' => [
                 'label' => 'Price',
                 'placeholder' => '15.00',
