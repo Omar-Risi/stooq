@@ -13,20 +13,20 @@ return new class extends Migration
     {
         Schema::create('businesses', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->longText('description');
-            $table->string('instagram');
-            $table->string('cr')->nullable(true);
-            $table->integer('age');
+            $table->string('business_name');
+            $table->longText('business_description');
+            $table->string('instagram_handle');
+            $table->string('commercial_registeration')->nullable(true);
+            $table->integer('business_age');
             $table->string('business_logo');
             $table->string('business_banner');
 
             $table->string('owner_name');
-            $table->string('owner_gender');
+            $table->string('owner_gender')->nullable(); // TODO: Change later
             $table->integer('owner_id');
             $table->string('owner_age');
             $table->string('governorate');
-            $table->string('educational_level');
+            $table->string('education_level');
             $table->string('institute_name');
             $table->string('phone_number');
             $table->string('email');

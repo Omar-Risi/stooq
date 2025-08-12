@@ -50,7 +50,6 @@ type FileInputContainerProps = {
     type?: string;
     placeholder?: string;
     required?: boolean;
-    value: string;
     onChange: (value: string) => void;
     error?: string;
     accept?: string;
@@ -59,10 +58,8 @@ type FileInputContainerProps = {
 function FileInputContainer({
     label,
     name,
-    type = "text",
     placeholder,
     required = false,
-    value,
     onChange,
     error,
     accept
@@ -78,11 +75,13 @@ function FileInputContainer({
             <Input
                 id={name}
                 name={name}
-                type={type}
+                type="file"
                 placeholder={placeholder}
                 required={required}
-                value={value}
-                onChange={(e) => onChange(e.target.value)}
+                onChange={(e) => {
+                    if (e.target.files && e.target.files.length > 0)
+                        onChange(e.target.files[0])
+                }}
                 className="mt-2"
                 accept={accept}
             />

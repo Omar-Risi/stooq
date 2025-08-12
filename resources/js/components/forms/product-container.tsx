@@ -6,7 +6,7 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Trash } from "lucide-react";
-import { TextInputContainer, PrefixInputContainer } from "./input-container";
+import { TextInputContainer, PrefixInputContainer, FileInputContainer } from "./input-container";
 
 import {
     AlertDialog,
@@ -22,6 +22,7 @@ import {
 
 interface Product {
     name: string;
+    description: string;
     price: string;
     quantity: string;
     image: string | undefined;
@@ -117,6 +118,18 @@ function ProductContainer({
                     onChange={(val) => updateProduct("name", val)}
                 />
 
+                <TextInputContainer
+                    name={`products[${index}].description`}
+                    type="text"
+                    label={translations.name.label}
+                    placeholder={translations.name.placeholder}
+                    required
+                    value={product.description || ""}
+                    error={errors[`products.${index}.description`]}
+                    onChange={(val) => updateProduct("description", val)}
+                />
+
+
                 <PrefixInputContainer
                     prefix="OMR"
                     name={`products[${index}].price`}
@@ -140,12 +153,10 @@ function ProductContainer({
                     onChange={(val) => updateProduct("quantity", val)}
                 />
 
-                <TextInputContainer
+                <FileInputContainer
                     name={`products[${index}].image`}
-                    type="file"
                     label={translations.image.label}
                     required
-                    value={product.image || ""}
                     error={errors[`products.${index}.image`]}
                     onChange={(val) => updateProduct("image", val)}
                 />

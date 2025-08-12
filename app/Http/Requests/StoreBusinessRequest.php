@@ -34,10 +34,9 @@ class StoreBusinessRequest extends FormRequest
             'business_age' => 'required|integer|min:0',
             'business_description' => 'nullable|string',
             'commercial_registration' => 'nullable|string|max:255',
-            'instagram' => 'nullable|string|max:255',
+            'instagram_handle' => 'nullable|string|max:255',
             'business_logo' => 'nullable|image|file|mimes:jpg,jpeg,png,heic,heif|max:2048',
             'business_banner' => 'nullable|image|file|mimes:jpg,jpeg,png,heic,heif|max:4096',
-            'products' => 'nullable|array',
-        ];
+            'products' => 'nullable|array'];
     }
 }

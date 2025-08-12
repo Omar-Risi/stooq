@@ -61,18 +61,16 @@ export default function BusinessInfoCard({ data, errors, setData, translations }
                     placeholder={translations.instagram.placeholder}
                     prefix="@"
                     required
-                    value={data.instagram}
-                    error={errors.instagram}
-                    onChange={(val) => setData("instagram", val)}
+                    value={data.instagram_handle}
+                    error={errors.instagram_handle}
+                    onChange={(val) => setData("instagram_handle", val)}
                 />
 
 
                 <FileInputContainer
                     name="business_logo"
-                    type="file"
                     label={translations.logo.label}
                     required
-                    value={data.business_logo}
                     error={errors.business_logo}
                     onChange={(val) => setData("business_logo", val)}
                     accept=".jpg,.jpeg,.png,image/jpeg,image/png"
@@ -80,10 +78,8 @@ export default function BusinessInfoCard({ data, errors, setData, translations }
 
                 <FileInputContainer
                     name="business_banner"
-                    type="file"
                     label={translations.banner.label}
                     required
-                    value={data.business_banner}
                     error={errors.business_banner}
                     onChange={(val) => setData("business_banner", val)}
                     accept=".jpg,.jpeg,.png,image/jpeg,image/png"

@@ -10,18 +10,20 @@ class Business extends Model
 {
 
     protected $fillable = [
-        'name',
-        'description',
+        'business_name',
+        'business_description',
         'instagram_handle',
-        'cr',
-        'age',
-        'profile_img',
-        'banner',
+        'commercial_registeration',
+        'business_age',
+        'business_logo',
+        'business_banner',
 
         'owner_name',
         'owner_id',
         'owner_age',
-        'educational_institution',
+        'governorate',
+        'education_level',
+        'institute_name',
         'phone_number',
         'email',
     ];

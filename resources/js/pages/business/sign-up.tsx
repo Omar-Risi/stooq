@@ -23,9 +23,9 @@ type dataTypes = {
     business_age: number | string;
     business_description: string;
     commercial_registration?: string | number;
-    instagram: string;
-    business_logo: string | undefined;
-    business_banner: string | undefined;
+    instagram_handle: string;
+    business_logo: string;
+    business_banner: string;
     products: unknown[];
 
 }
@@ -73,9 +73,9 @@ export default function SignUp() {
         business_age: "",
         business_description: "",
         commercial_registration: "",
-        instagram: "",
-        business_logo: undefined,
-        business_banner: undefined,
+        instagram_handle: "",
+        business_logo: "",
+        business_banner: "",
         products: []
     });
 
@@ -83,7 +83,18 @@ export default function SignUp() {
 
     usePersistedFormState("ownerFormData", data, setData);
 
-    function handleSubmit() { }
+    function handleSubmit(e) {
+        e.preventDefault();
+
+        console.log(data)
+
+        post("/business/store", {
+            preserveScroll: true,
+            onSuccess: () => {
+                reset(); // Clear form after successful submission
+            },
+        })
+    }
 
     return (
         <div dir={direction} className="h-full w-full">
