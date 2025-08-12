@@ -11,16 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('businesses', function (Blueprint $table) {
+        Schema::create('owners', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->longText('description');
-            $table->string('instagram_handle');
-            $table->string('commercial_registeration')->nullable(true);
-            $table->integer('age');
-            $table->string('logo');
-            $table->string('banner');
-            $table->foreignIdFor(App\Models\Owner::class);
+            $table->string('gender');
+            $table->string('resident_id');
+            $table->string('governorate');
+            $table->string('education_level');
+            $table->string('institute_name');
+            $table->string('phone_number');
+            $table->string('email');
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('businesses');
+        Schema::dropIfExists('owners');
     }
 };
