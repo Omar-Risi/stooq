@@ -30,6 +30,7 @@ class AppServiceProvider extends ServiceProvider
                  'home' => Lang::get('home'),
                  'general' => Lang::get('general'),
                  'sign_up' => Lang::get('sign_up'),
+                 'validation' => Lang::get('validation')
             ]
     ]);
     }

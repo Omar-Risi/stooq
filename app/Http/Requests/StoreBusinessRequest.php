@@ -24,11 +24,12 @@ class StoreBusinessRequest extends FormRequest
         return [
             // Owner
             'owner.name' => ['required', 'string', 'max:255'],
-            'owner.age' => ['required', 'integer', 'min:18'], // adjust min age if needed
+            'owner.age' => ['required', 'integer', 'min:0'], // adjust min age if needed
+            'owner.gender' => ['required', 'string'], // adjust min age if needed
             'owner.resident_id' => ['required', 'string', 'max:50'], // or use regex for ID format
             'owner.education_level' => ['required', 'string', 'max:255'],
             'owner.institute_name' => ['required', 'string', 'max:255'],
-            'owner.phone_number' => ['required', 'number', 'regex:/^(\+968)?[0-9]{8}$/'], // Oman phone format example
+            'owner.phone_number' => ['required', 'string'], // Oman phone format example
             'owner.email' => ['required', 'email', 'max:255'],
             'owner.governorate' => ['required', 'string'],
 
@@ -37,16 +38,16 @@ class StoreBusinessRequest extends FormRequest
             'business.age' => ['required', 'integer', 'min:0'], // in years
             'business.description' => ['required', 'string'],
             'business.commercial_registration' => ['nullable', 'string', 'max:100'],
-            'business.instagram_handle' => ['nullable', 'string', 'max:50', 'regex:/^[A-Za-z0-9._]+$/'],
+            'business.instagram_handle' => ['required', 'string', 'max:50', 'regex:/^[A-Za-z0-9._]+$/'],
             'business.logo' => ['required', 'image', 'mimes:jpg,jpeg,png', 'max:2048'],
-            'business.banner' => ['required', 'image', 'mimes:jpg,jpeg,png,heic', 'max:4096'],
+            'business.banner' => ['required', 'image', 'mimes:jpg,jpeg,png', 'max:4096'],
 
             // Products array
             'products' => ['array'],
             'products.*.name' => ['required', 'string', 'max:255'],
             'products.*.price' => ['required', 'numeric', 'min:0'],
             'products.*.description' => ['nullable', 'string'],
-            'business.*.image' => ['required', 'image', 'mimes:jpg,jpeg,png,heic', 'max:2048'],
+            'products.*.image' => ['required', 'image', 'mimes:jpg,jpeg,png', 'max:4096'],
         ];
     }
 }

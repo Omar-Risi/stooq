@@ -32,6 +32,20 @@ export default function OwnerInfoCard({ data, errors, setData, translations }) {
                     error={errors.owner?.name}
                     onChange={(val) => setData("owner.name", val)}
                 />
+                <RadioInputContainer
+                    name="owner.gender"
+                    label={translations.gender.label}
+                    required
+                    options={[
+                        { label: translations.gender.male, value: "male" },
+                        { label: translations.gender.female, value: "female" },
+                    ]}
+                    value={data.owner.gender}
+                    onChange={(val) => setData("owner.gender", val)}
+                    error={errors.owner?.gender}
+                />
+
+
 
                 <TextInputContainer
                     name="owner.age"

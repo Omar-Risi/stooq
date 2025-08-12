@@ -43,6 +43,7 @@ export default function SignUp() {
     const { data, setData, post, processing, errors, reset } = useForm({
         owner: {
             name: "",
+            gender: "male",
             age: "",
             resident_id: "",
             education_level: "",
@@ -70,7 +71,7 @@ export default function SignUp() {
     function handleSubmit(e) {
         e.preventDefault();
 
-        console.log(data)
+        console.log(errors)
 
         post("/business/store", {
             preserveScroll: true,

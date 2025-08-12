@@ -17,7 +17,7 @@ return new class extends Migration
             $table->longText('description');
             $table->string('instagram_handle');
             $table->string('commercial_registeration')->nullable(true);
-            $table->integer('age');
+            $table->integer('age')->default(0)->change();
             $table->string('logo');
             $table->string('banner');
             $table->foreignIdFor(App\Models\Owner::class);

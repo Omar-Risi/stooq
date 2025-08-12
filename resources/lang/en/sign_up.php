@@ -12,6 +12,11 @@ return [
                 'label' => 'Name',
                 'placeholder' => 'John Doe',
             ],
+            'gender' => [
+                'label'=> 'Gender',
+                'male' => 'Male',
+                'female' => 'Female'
+            ],
             'age' => [
                 'label' => 'Age',
                 'placeholder' => 'Your age',
