@@ -15,17 +15,19 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->longText('description');
-            $table->string('instagram_handle');
+            $table->string('instagram');
             $table->string('cr')->nullable(true);
             $table->integer('age');
-            $table->string('profile_img');
-            $table->string('banner');
+            $table->string('business_logo');
+            $table->string('business_banner');
 
             $table->string('owner_name');
             $table->string('owner_gender');
             $table->integer('owner_id');
             $table->string('owner_age');
-            $table->string('educational_institution')->nullable();
+            $table->string('governorate');
+            $table->string('educational_level');
+            $table->string('institute_name');
             $table->string('phone_number');
             $table->string('email');
 

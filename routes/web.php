@@ -4,12 +4,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Middleware\SetLocale;
+use App\Http\Controllers\BusinessController;
 
 
 Route::middleware([SetLocale::class])->group(
     function () {
-
-
         Route::get('/', function () {
 
             return Inertia::render('home');
@@ -22,7 +21,6 @@ Route::middleware([SetLocale::class])->group(
 );
 
 Route::post('toggle-locale', function (Request $request) {
-
     $locale = $request->input('locale');
 
     if (in_array($locale, ['en', 'ar'])) {
@@ -31,6 +29,8 @@ Route::post('toggle-locale', function (Request $request) {
 
     return back();
 })->name('switch.lang');
+
+Route::post('/business/store', [BusinessController::class, 'store']);
 
 /* Route::middleware(['auth', 'verified'])->group(function () { */
 /*     Route::get('dashboard', function () { */
