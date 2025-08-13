@@ -4,9 +4,17 @@ import {
     CardTitle,
     CardContent,
 } from "@/components/ui/card";
+
 import { Button } from "@/components/ui/button";
+
 import { Trash } from "lucide-react";
-import { TextInputContainer, PrefixInputContainer, FileInputContainer } from "./input-container";
+
+import {
+    TextInputContainer,
+    PrefixInputContainer,
+    FileInputContainer,
+    TextareaContainer
+} from "./input-container";
 
 import {
     AlertDialog,
@@ -118,9 +126,8 @@ function ProductContainer({
                     onChange={(val) => updateProduct("name", val)}
                 />
 
-                <TextInputContainer
+                <TextareaContainer
                     name={`products[${index}].description`}
-                    type="text"
                     label={translations.description.label}
                     placeholder={translations.description.placeholder}
                     required

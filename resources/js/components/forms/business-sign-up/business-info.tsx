@@ -1,5 +1,5 @@
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
-import { TextInputContainer, PrefixInputContainer, FileInputContainer } from "@/components/forms/input-container";
+import { TextInputContainer, PrefixInputContainer, FileInputContainer, TextareaContainer } from "@/components/forms/input-container";
 
 export default function BusinessInfoCard({ data, errors, setData, translations }) {
     return (
@@ -32,9 +32,8 @@ export default function BusinessInfoCard({ data, errors, setData, translations }
                     onChange={(val) => setData("business.age", val)}
                 />
 
-                <TextInputContainer
+                <TextareaContainer
                     name="business.description"
-                    type="text"
                     label={translations.description.label}
                     placeholder={translations.description.placeholder}
                     required

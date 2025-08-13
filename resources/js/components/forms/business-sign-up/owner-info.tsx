@@ -13,6 +13,7 @@ import {
     PrefixInputContainer
 } from "@/components/forms/input-container";
 
+
 export default function OwnerInfoCard({ data, errors, setData, translations }) {
     return (
         <Card className="w-full text-start">

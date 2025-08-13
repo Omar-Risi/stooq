@@ -1,6 +1,8 @@
 import React from "react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+
 
 type TextInputContainerProps = {
     name: string;
@@ -43,6 +45,47 @@ function TextInputContainer({
         </div>
     );
 }
+
+type TextareaContainerProps = {
+    name: string;
+    label: string;
+    placeholder?: string;
+    required?: boolean;
+    value: string;
+    onChange: (value: string) => void;
+    error?: string;
+};
+
+function TextareaContainer({
+    name,
+    label,
+    placeholder,
+    required = false,
+    value,
+    onChange,
+    error,
+}: TextareaContainerProps) {
+    return (
+        <div className="flex flex-col mt-4">
+            <Label htmlFor={name} className="">
+                {label}
+                {required && <span className="text-red-500">*</span>}
+            </Label>
+            <Textarea
+                id={name}
+                name={name}
+                placeholder={placeholder}
+                required={required}
+                value={value}
+                onChange={(e) => onChange(e.target.value)}
+                className="mt-2"
+                style={{ backgroundColor: 'white' }}
+            ></Textarea>
+            {error && <p className="text-sm text-red-500 mt-1">{error}</p>}
+        </div>
+    );
+}
+
 
 type FileInputContainerProps = {
     name: string;
@@ -255,6 +298,7 @@ function SelectContainer({
 
 export {
     TextInputContainer,
+    TextareaContainer,
     FileInputContainer,
     PrefixInputContainer,
     RadioInputContainer,
