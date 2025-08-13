@@ -17,7 +17,6 @@ class Owner extends Model
         'institute_name',
         'phone_number',
         'email',
-        'business_id'
     ];
 
 

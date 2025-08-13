@@ -16,7 +16,7 @@ class Business extends Model
         'description',
         'instagram_handle',
         'commercial_registeration',
-        'business_age',
+        'age',
         'logo',
         'banner',
         'owner_id'
