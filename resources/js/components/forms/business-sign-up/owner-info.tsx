@@ -122,17 +122,17 @@ export default function OwnerInfoCard({ data, errors, setData, translations }) {
                     label={translations.governorate.label}
                     required
                     options={[
-                        { value: translations.governorate.options.muscat, label: "Muscat" },
-                        { value: translations.governorate.options.dhofar, label: "Dhofar" },
-                        { value: translations.governorate.options.musandam, label: "Musandam" },
-                        { value: translations.governorate.options.al_batinah_north, label: "Al Batinah North" },
-                        { value: translations.governorate.options.al_batinah_south, label: "Al Batinah South" },
-                        { value: translations.governorate.options.al_dakhiliya, label: "Al Dakhiliyah" },
-                        { value: translations.governorate.options.al_sharqiyah_north, label: "Al Sharqiyah North" },
-                        { value: translations.governorate.options.al_sharqiyah_south, label: "Al Sharqiyah South" },
-                        { value: translations.governorate.options.al_dhahirah, label: "Al Dhahirah" },
-                        { value: translations.governorate.options.al_wusta, label: "Al Wusta" },
-                        { value: translations.governorate.options.al_buraimi, label: "Al Buraimi" },
+                        { value: translations.governorate.options.muscat, label: "muscat" },
+                        { value: translations.governorate.options.dhofar, label: "dhofat" },
+                        { value: translations.governorate.options.musandam, label: "musandam" },
+                        { value: translations.governorate.options.al_batinah_north, label: "al_batinah_north" },
+                        { value: translations.governorate.options.al_batinah_south, label: "al_batinah_south" },
+                        { value: translations.governorate.options.al_dakhiliya, label: "al_dakhiliya" },
+                        { value: translations.governorate.options.al_sharqiyah_north, label: "al_sharqiyah_north" },
+                        { value: translations.governorate.options.al_sharqiyah_south, label: "al_sharqiyah_south" },
+                        { value: translations.governorate.options.al_dhahirah, label: "al_dahirah" },
+                        { value: translations.governorate.options.al_wusta, label: "al_wusta" },
+                        { value: translations.governorate.options.al_buraimi, label: "al_buraimi" },
                     ]}
                     value={data.owner.governorate}
                     onChange={(val) => setData("owner.governorate", val)}

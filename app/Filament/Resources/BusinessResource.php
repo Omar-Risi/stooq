@@ -70,17 +70,17 @@ class BusinessResource extends Resource
 
                     Forms\Components\Select::make('governorate')
                         ->options([
-                            'Muscat' => 'Muscat',
-                            'Dhofar' => 'Dhofar',
-                            'Musandam' => 'Musandam',
-                            'Al Batinah North' => 'Al Batinah North',
-                            'Al Batinah South' => 'Al Batinah South',
-                            'Al Dakhiliyah' => 'Al Dakhiliyah',
-                            'Al Sharqiyah North' => 'Al Sharqiyah North',
-                            'Al Sharqiyah South' => 'Al Sharqiyah South',
-                            'Al Dahirah' => 'Al Dahirah',
-                            'Al Wusta' => 'Al Wusta',
-                            'Al Buraimi' => 'Al Buraimi'
+                            'muscat' => 'Muscat',
+                            'dhofat' => 'Dhofar',
+                            'musandam' => 'Musandam',
+                            'al_batinah_north' => 'Al Batinah North',
+                            'al_batinah_south' => 'Al Batinah South',
+                            'al_dakhiliyah' => 'Al Dakhiliyah',
+                            'al_sharqiyah_north' => 'Al Sharqiyah North',
+                            'al_sharqiyah_south' => 'Al Sharqiyah South',
+                            'al_dahirah' => 'Al Dahirah',
+                            'al_wusta' => 'Al Wusta',
+                            'al_buraimi' => 'Al Buraimi'
                         ])
                         ->columnSpanFull(),
                     Forms\Components\Select::make('education_level')
