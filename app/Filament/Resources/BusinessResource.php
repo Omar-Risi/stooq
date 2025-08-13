@@ -132,7 +132,7 @@ class BusinessResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('name')->searchable(),
                 Tables\Columns\TextColumn::make('instagram_handle')->prefix('@')->searchable(),
-                // TODO: add products count
+                Tables\Columns\TextColumn::make('products_count')->counts('products'),
             ])
             ->filters([
                 //
