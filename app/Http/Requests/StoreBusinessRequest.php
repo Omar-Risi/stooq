@@ -24,12 +24,12 @@ class StoreBusinessRequest extends FormRequest
         return [
             // Owner
             'owner.name' => ['required', 'string', 'max:255'],
-            'owner.age' => ['required', 'integer', 'min:0'], // adjust min age if needed
-            'owner.gender' => ['required', 'string'], // adjust min age if needed
-            'owner.resident_id' => ['required', 'string', 'max:50'], // or use regex for ID format
+            'owner.age' => ['required', 'integer', 'min:8'], // TODO: set corrent min age
+            'owner.gender' => ['required', 'string'],
+            'owner.resident_id' => ['required', 'string', 'max:50'],
             'owner.education_level' => ['required', 'string', 'max:255'],
             'owner.institute_name' => ['required', 'string', 'max:255'],
-            'owner.phone_number' => ['required', 'string'], // Oman phone format example
+            'owner.phone_number' => ['required', 'string'],
             'owner.email' => ['required', 'email', 'max:255'],
             'owner.governorate' => ['required', 'string'],
 
@@ -45,7 +45,7 @@ class StoreBusinessRequest extends FormRequest
             // Products array
             'products' => ['array'],
             'products.*.name' => ['required', 'string', 'max:255'],
-            'products.*.price' => ['required', 'numeric', 'min:0'],
+            'products.*.price' => ['required', 'numeric', 'min:1'],
             'products.*.description' => ['nullable', 'string'],
             'products.*.image' => ['required', 'image', 'mimes:jpg,jpeg,png', 'max:4096'],
         ];

@@ -193,6 +193,30 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'owner.name' => 'Owner name',
+        'owner.age' => 'Owner age',
+        'owner.gender' => 'gender',
+        'owner.resident_id' => 'ID number',
+        'owner.education_level' => 'Education level',
+        'owner.institute_name' => 'Institute name',
+        'owner.phone_number' => 'Phone number',
+        'owner.email' => 'Email',
+        'owner.governorate' => 'Governorate',
+
+
+        'business.name' => 'Business name',
+        'business.age' => 'Business age',
+        'business.description' => 'Business description',
+        'business.commercial_registration' => 'Commercial registration',
+        'business.instagram_handle' => 'Instagram handle',
+        'business.logo' => 'Logo',
+        'business.banner' => 'banner',
+
+        'products.*.name' => 'Product name',
+        'products.*.price' => 'Product price',
+        'products.*.description' => 'Product description',
+        'products.*.image' => 'Product image'
+    ],
 
 ];
