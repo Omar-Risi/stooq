@@ -17,7 +17,7 @@ export default function BusinessInfoCard({ data, errors, setData, translations }
                     placeholder={translations.name.placeholder}
                     required
                     value={data.business.name}
-                    error={errors.business?.name}
+                    error={errors['business.name']}
                     onChange={(val) => setData("business.name", val)}
                 />
 
@@ -28,7 +28,7 @@ export default function BusinessInfoCard({ data, errors, setData, translations }
                     placeholder={translations.age.placeholder}
                     required
                     value={data.business.age}
-                    error={errors.business?.age}
+                    error={errors['business.age']}
                     onChange={(val) => setData("business.age", val)}
                 />
 
@@ -38,7 +38,7 @@ export default function BusinessInfoCard({ data, errors, setData, translations }
                     placeholder={translations.description.placeholder}
                     required
                     value={data.business.description}
-                    error={errors.business?.description}
+                    error={errors['business.description']}
                     onChange={(val) => setData("business.description", val)}
                 />
 
@@ -48,7 +48,7 @@ export default function BusinessInfoCard({ data, errors, setData, translations }
                     label={translations.commercial_registration.label}
                     placeholder={translations.commercial_registration.placeholder}
                     value={data.business.commercial_registration}
-                    error={errors.business?.commercial_registration}
+                    error={errors['business.commercial_registration']}
                     onChange={(val) => setData("business.commercial_registration", val)}
                 />
 
@@ -60,7 +60,7 @@ export default function BusinessInfoCard({ data, errors, setData, translations }
                     prefix="@"
                     required
                     value={data.business.instagram_handle}
-                    error={errors.business?.instagram_handle}
+                    error={errors['business.instagram_handle']}
                     onChange={(val) => setData("business.instagram_handle", val)}
                 />
 
@@ -68,7 +68,7 @@ export default function BusinessInfoCard({ data, errors, setData, translations }
                     name="business.logo"
                     label={translations.logo.label}
                     required
-                    error={errors.business?.logo}
+                    error={errors['business.logo']}
                     onChange={(val) => setData("business.logo", val)}
                     accept=".jpg,.jpeg,.png,image/jpeg,image/png"
                 />
@@ -77,7 +77,7 @@ export default function BusinessInfoCard({ data, errors, setData, translations }
                     name="business.banner"
                     label={translations.banner.label}
                     required
-                    error={errors.business?.banner}
+                    error={errors['business.banner']}
                     onChange={(val) => setData("business.banner", val)}
                     accept=".jpg,.jpeg,.png,image/jpeg,image/png"
                 />

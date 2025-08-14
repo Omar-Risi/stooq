@@ -30,7 +30,7 @@ export default function OwnerInfoCard({ data, errors, setData, translations }) {
                     placeholder={translations.name.placeholder}
                     required
                     value={data.owner.name}
-                    error={errors.owner?.name}
+                    error={errors['owner.name']}
                     onChange={(val) => setData("owner.name", val)}
                 />
                 <RadioInputContainer
@@ -43,7 +43,7 @@ export default function OwnerInfoCard({ data, errors, setData, translations }) {
                     ]}
                     value={data.owner.gender}
                     onChange={(val) => setData("owner.gender", val)}
-                    error={errors.owner?.gender}
+                    error={errors['owner.gender']}
                 />
 
 
@@ -55,7 +55,7 @@ export default function OwnerInfoCard({ data, errors, setData, translations }) {
                     placeholder={translations.age.placeholder}
                     required
                     value={data.owner.age}
-                    error={errors.owner?.age}
+                    error={errors['owner.age']}
                     onChange={(val) => setData("owner.age", val)}
                 />
 
@@ -66,7 +66,7 @@ export default function OwnerInfoCard({ data, errors, setData, translations }) {
                     placeholder={translations.id_number.placeholder}
                     required
                     value={data.owner.resident_id}
-                    error={errors.owner?.resident_id}
+                    error={errors['owner.resident_id']}
                     onChange={(val) => setData("owner.resident_id", val)}
                 />
 
@@ -80,7 +80,7 @@ export default function OwnerInfoCard({ data, errors, setData, translations }) {
                     ]}
                     value={data.owner.education_level}
                     onChange={(val) => setData("owner.education_level", val)}
-                    error={errors.owner?.education_level}
+                    error={errors['owner.eudcation_level']}
                 />
 
                 <TextInputContainer
@@ -90,7 +90,7 @@ export default function OwnerInfoCard({ data, errors, setData, translations }) {
                     placeholder={translations.institute_name.placeholder}
                     required
                     value={data.owner.institute_name}
-                    error={errors.owner?.institute_name}
+                    error={errors['owner.institute_name']}
                     onChange={(val) => setData("owner.institute_name", val)}
                 />
 
@@ -102,7 +102,7 @@ export default function OwnerInfoCard({ data, errors, setData, translations }) {
                     placeholder={translations.phone_number.placeholder}
                     required
                     value={data.owner.phone_number}
-                    error={errors.owner?.phone_number}
+                    error={errors['owner.phone_number']}
                     onChange={(val) => setData("owner.phone_number", val)}
                 />
 
@@ -113,7 +113,7 @@ export default function OwnerInfoCard({ data, errors, setData, translations }) {
                     placeholder={translations.email.placeholder}
                     required
                     value={data.owner.email}
-                    error={errors.owner?.email}
+                    error={errors['owner.email']}
                     onChange={(val) => setData("owner.email", val)}
                 />
 
@@ -122,21 +122,21 @@ export default function OwnerInfoCard({ data, errors, setData, translations }) {
                     label={translations.governorate.label}
                     required
                     options={[
-                        { value: translations.governorate.options.muscat, label: "muscat" },
-                        { value: translations.governorate.options.dhofar, label: "dhofat" },
-                        { value: translations.governorate.options.musandam, label: "musandam" },
-                        { value: translations.governorate.options.al_batinah_north, label: "al_batinah_north" },
-                        { value: translations.governorate.options.al_batinah_south, label: "al_batinah_south" },
-                        { value: translations.governorate.options.al_dakhiliya, label: "al_dakhiliya" },
-                        { value: translations.governorate.options.al_sharqiyah_north, label: "al_sharqiyah_north" },
-                        { value: translations.governorate.options.al_sharqiyah_south, label: "al_sharqiyah_south" },
-                        { value: translations.governorate.options.al_dhahirah, label: "al_dahirah" },
-                        { value: translations.governorate.options.al_wusta, label: "al_wusta" },
-                        { value: translations.governorate.options.al_buraimi, label: "al_buraimi" },
+                        { label: translations.governorate.options.muscat, value: "muscat" },
+                        { label: translations.governorate.options.dhofar, value: "dhofat" },
+                        { label: translations.governorate.options.musandam, value: "musandam" },
+                        { label: translations.governorate.options.al_batinah_north, value: "al_batinah_north" },
+                        { label: translations.governorate.options.al_batinah_south, value: "al_batinah_south" },
+                        { label: translations.governorate.options.al_dakhiliya, value: "al_dakhiliya" },
+                        { label: translations.governorate.options.al_sharqiyah_north, value: "al_sharqiyah_north" },
+                        { label: translations.governorate.options.al_sharqiyah_south, value: "al_sharqiyah_south" },
+                        { label: translations.governorate.options.al_dhahirah, value: "al_dahirah" },
+                        { label: translations.governorate.options.al_wusta, value: "al_wusta" },
+                        { label: translations.governorate.options.al_buraimi, value: "al_buraimi" },
                     ]}
                     value={data.owner.governorate}
                     onChange={(val) => setData("owner.governorate", val)}
-                    error={errors.owner?.governorate}
+                    error={errors['owner.governorate']}
                 />
 
             </CardContent>
