@@ -4,8 +4,6 @@ import {
     CardTitle,
     CardDescription,
     CardContent,
-    CardAction,
-    CardFooter
 } from "@/components/ui/card";
 
 import { useState } from "react";

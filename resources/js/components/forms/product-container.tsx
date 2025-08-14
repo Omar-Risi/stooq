@@ -40,8 +40,8 @@ interface ProductContainerProps {
     index: number;
     product: Product;
     products: Product[];
-    errors: Record<string, any>;
-    setData: (key: string, value: any) => void;
+    errors: object;
+    setData: (key: string, value: string | number | boolean | Product[]) => void;
     onRemove: () => void;
     translations: {
         card: { title: string };
@@ -67,7 +67,7 @@ function ProductContainer({
     onRemove,
     translations,
 }: ProductContainerProps) {
-    const updateProduct = (field: keyof Product, value: any) => {
+    const updateProduct = (field: keyof Product, value: (string | number | boolean | Product[])) => {
         setData(
             "products",
             products.map((p, i) => (i === index ? { ...p, [field]: value } : p))

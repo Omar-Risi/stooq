@@ -1,4 +1,4 @@
-import { Link, usePage } from "@inertiajs/react";
+import { usePage } from "@inertiajs/react";
 import NavBar from "@/components/nav/navbar";
 import { Button } from "@/components/ui/button";
 import { useForm } from "@inertiajs/react";
@@ -16,7 +16,7 @@ export default function SignUp() {
     const { direction, translations } = usePage().props;
 
 
-    function usePersistedFormState(key: string, data: any, setData: (name: string, value: any) => void) {
+    function usePersistedFormState(key: string, data: (string | number | boolean | unknown), setData: (name: string, value: (string | boolean | number | unknown)) => void) {
         // Load from sessionStorage when component mounts
         useEffect(() => {
             const saved = sessionStorage.getItem(key);

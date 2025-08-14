@@ -6,12 +6,10 @@ import {
     SheetTrigger,
     SheetContent,
     SheetHeader,
-    SheetTitle,
     SheetClose,
 } from "@/components/ui/sheet";
 
 import { usePage } from "@inertiajs/react";
-import { useEffect } from "react";
 
 type NavBarProps = {
     className?: string,
