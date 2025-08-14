@@ -17,7 +17,12 @@ Route::middleware([SetLocale::class])->group(
         Route::get('/business/signup', function () {
             return Inertia::render('business/sign-up');
         })->name('business.sign-up');
+
+
+
+Route::post('/business/store', [BusinessController::class, 'store']);
     }
+
 );
 
 Route::post('toggle-locale', function (Request $request) {
@@ -30,7 +35,6 @@ Route::post('toggle-locale', function (Request $request) {
     return back();
 })->name('switch.lang');
 
-Route::post('/business/store', [BusinessController::class, 'store']);
 
 /* Route::middleware(['auth', 'verified'])->group(function () { */
 /*     Route::get('dashboard', function () { */

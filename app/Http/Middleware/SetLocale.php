@@ -20,6 +20,7 @@ class SetLocale
         // 1. Get locale from session or fallback to default
         $locale = session('locale', config('app.locale'));
 
+
         // 2. Set the Laravel app locale
         App::setLocale($locale);
 
