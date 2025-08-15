@@ -3,8 +3,7 @@ import NavBar from "@/components/nav/navbar";
 import { Button } from "@/components/ui/button";
 import { useForm } from "@inertiajs/react";
 import { Loader2Icon } from "lucide-react";
-
-
+import { OtpSection } from "@/components/forms/business-sign-up/otp-section";
 import OwnerInfoCard from "@/components/forms/business-sign-up/owner-info";
 import BusinessInfoCard from '@/components/forms/business-sign-up/business-info';
 import { useEffect } from "react";
@@ -127,6 +126,7 @@ export default function SignUp() {
 
                     {/* Submit Button */}
                     <div className="w-full flex justify-end">
+                        <OtpSection />
                         <Button
                             type="submit"
                             className="mt-4 flex-1 text-white font-bold cursor-pointer hover:bg-white hover:text-primary"
