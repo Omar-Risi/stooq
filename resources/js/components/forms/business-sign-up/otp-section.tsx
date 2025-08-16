@@ -7,9 +7,9 @@ import {
     AlertDialogFooter,
     AlertDialogHeader,
     AlertDialogTitle,
-    AlertDialogTrigger,
 } from "@/components/ui/alert-dialog"
 
+import { Button } from "@/components/ui/button";
 
 import {
     InputOTP,
@@ -18,21 +18,12 @@ import {
     InputOTPSlot,
 } from "@/components/ui/input-otp"
 
-import { Button } from "@/components/ui/button"
 
+import { Loader2Icon } from "lucide-react";
 
-function OtpSection() {
+function OtpSection({ open, setOtpOpen, data, setData, processing, handleSubmit }) {
     return (
-        <AlertDialog>
-            <AlertDialogTrigger>
-                <Button
-                    type="button"
-                    className="mt-4 flex-1 text-white font-bold cursor-pointer hover:bg-white hover:text-primary"
-                >
-                    Submit
-                </Button>
-
-            </AlertDialogTrigger>
+        <AlertDialog open={open}>
             <AlertDialogContent>
                 <AlertDialogHeader>
                     <AlertDialogTitle> One final step </AlertDialogTitle>
@@ -43,7 +34,12 @@ function OtpSection() {
 
 
                 <div className="w-full grid place-content-center">
-                    <InputOTP maxLength={6}>
+                    <InputOTP
+                        name="otp"
+                        maxLength={6}
+                        value={data.otp}
+                        onChange={(val) => setData('otp', val)}
+                    >
                         <InputOTPGroup>
                             <InputOTPSlot index={0} />
                             <InputOTPSlot index={1} />
@@ -58,13 +54,20 @@ function OtpSection() {
                     </InputOTP>
                 </div>
                 <AlertDialogFooter>
-                    <AlertDialogCancel>Cancel</AlertDialogCancel>
-                    <AlertDialogAction>
+                    <AlertDialogCancel onClick={() => setOtpOpen(false)}>Cancel</AlertDialogCancel>
+                    <Button
+                        disabled={data.otp.length < 6 || processing}
+                        className="cursor-pointer disabled:cursor-default"
+                        type="submit"
+                        onClick={handleSubmit}
+                    >
+                        {(processing) && <Loader2Icon className="animate-spin" />}
+
                         Submit form
-                    </AlertDialogAction>
+                    </Button>
                 </AlertDialogFooter>
             </AlertDialogContent>
-        </AlertDialog>
+        </AlertDialog >
     )
 }
 

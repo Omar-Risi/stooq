@@ -6,13 +6,15 @@ import { Loader2Icon } from "lucide-react";
 import { OtpSection } from "@/components/forms/business-sign-up/otp-section";
 import OwnerInfoCard from "@/components/forms/business-sign-up/owner-info";
 import BusinessInfoCard from '@/components/forms/business-sign-up/business-info';
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import ProductsCard from "@/components/forms/business-sign-up/products";
 
 
 export default function SignUp() {
 
     const { direction, translations } = usePage().props;
+    const flash = usePage().props.flash || {};
+    const [otpOpen, setOtpOpen] = useState(false);
 
 
     function usePersistedFormState(key: string, data: (string | number | boolean | unknown), setData: (name: string, value: (string | boolean | number | unknown)) => void) {
@@ -60,7 +62,9 @@ export default function SignUp() {
             logo: "",
             banner: "",
         },
-        products: []
+        products: [],
+        otp: '',
+        transaction_id: '',
     });
 
 
@@ -72,12 +76,23 @@ export default function SignUp() {
 
         console.log(errors)
 
-        post(route('business.validate'), {
-            preserveScroll: true,
-            onSuccess: () => {
-                reset(); // Clear form after successful submission
-            },
-        })
+        if (!otpOpen) {
+            post(route('business.validate'), {
+                preserveScroll: true,
+                onSuccess: () => {
+                    setOtpOpen(true)
+                    setData('transaction_id', flash.transaction_id)
+                },
+            })
+        }
+        else {
+            post(route('business.store'), {
+                preserveScroll: true,
+                onSuccess: () => {
+                    setOtpOpen(true)
+                },
+            })
+        }
     }
 
     return (
@@ -126,7 +141,15 @@ export default function SignUp() {
 
                     {/* Submit Button */}
                     <div className="w-full flex justify-end">
-                        <OtpSection />
+                        <OtpSection
+                            open={otpOpen}
+                            setOtpOpen={setOtpOpen}
+                            data={data}
+                            setData={setData}
+                            processing={processing}
+                            handleSubmit={handleSubmit}
+                        />
+
                         <Button
                             type="submit"
                             className="mt-4 flex-1 text-white font-bold cursor-pointer hover:bg-white hover:text-primary"
