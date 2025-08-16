@@ -72,7 +72,7 @@ export default function SignUp() {
 
         console.log(errors)
 
-        post("/business/store", {
+        post(route('business.validate'), {
             preserveScroll: true,
             onSuccess: () => {
                 reset(); // Clear form after successful submission

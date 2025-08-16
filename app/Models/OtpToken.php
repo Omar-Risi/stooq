@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class OtpToken extends Model
 {
     protected  $fillable = [
-        'id',
+        'transaction_id',
         'email',
         'otp',
         'expires_at',
