@@ -12,8 +12,8 @@ import ProductsCard from "@/components/forms/business-sign-up/products";
 
 export default function SignUp() {
 
-    const { direction, translations } = usePage().props;
-    const flash = usePage().props.flash || {};
+    const pageProps = usePage().props;
+    const { direction, translations, flash } = usePage().props;
     const [otpOpen, setOtpOpen] = useState(false);
 
 
@@ -41,7 +41,7 @@ export default function SignUp() {
 
 
 
-    const { data, setData, post, processing, errors, reset } = useForm({
+    const { data, setData, post, processing, errors, reset, wasSuccessful } = useForm({
         owner: {
             name: "",
             gender: "male",
@@ -71,28 +71,37 @@ export default function SignUp() {
 
     usePersistedFormState("ownerFormData", data, setData);
 
+    useEffect(() => {
+        if (wasSuccessful && flash.success && flash.transaction_id) {
+            setData('transaction_id', flash.transaction_id);
+            setOtpOpen(true);
+            console.log(flash.otp)
+        }
+    }, [wasSuccessful, flash]);
+
+
+    function handleValidate(e) {
+        e.preventDefault();
+
+        post(route('business.validate'), {
+            preserveScroll: true,
+        })
+    }
+
     function handleSubmit(e) {
+
         e.preventDefault();
 
         console.log(errors)
 
-        if (!otpOpen) {
-            post(route('business.validate'), {
-                preserveScroll: true,
-                onSuccess: () => {
-                    setOtpOpen(true)
-                    setData('transaction_id', flash.transaction_id)
-                },
-            })
-        }
-        else {
-            post(route('business.store'), {
-                preserveScroll: true,
-                onSuccess: () => {
-                    setOtpOpen(true)
-                },
-            })
-        }
+        post('/business/store', {
+            preserveScroll: true,
+            onSuccess: () => {
+                setOtpOpen(false);
+                reset();
+            },
+        })
+
     }
 
     return (
@@ -112,7 +121,7 @@ export default function SignUp() {
             {/* Using min-h-[50vh] to make space dynamically instead of using margins */}
             <section className="text-primary-dark min-h-screen w-full flex justify-center items-center py-10">
                 <form
-                    onSubmit={handleSubmit} // replace with your handler
+                    onSubmit={(otpOpen ? handleSubmit : handleValidate)} // replace with your handler
                     className="w-full max-w-5xl space-y-8"
                     encType="multipart/form-data"
                 >

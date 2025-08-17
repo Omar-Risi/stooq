@@ -55,7 +55,7 @@ function OtpSection({ open, setOtpOpen, data, setData, processing, handleSubmit 
                 </div>
                 <AlertDialogFooter>
                     <AlertDialogCancel onClick={() => setOtpOpen(false)}>Cancel</AlertDialogCancel>
-                    <Button
+                    <AlertDialogAction
                         disabled={data.otp.length < 6 || processing}
                         className="cursor-pointer disabled:cursor-default"
                         type="submit"
@@ -64,7 +64,7 @@ function OtpSection({ open, setOtpOpen, data, setData, processing, handleSubmit 
                         {(processing) && <Loader2Icon className="animate-spin" />}
 
                         Submit form
-                    </Button>
+                    </AlertDialogAction>
                 </AlertDialogFooter>
             </AlertDialogContent>
         </AlertDialog >

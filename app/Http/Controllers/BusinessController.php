@@ -11,6 +11,7 @@ use App\Models\OtpToken;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use Inertia\Inertia;
 
 class BusinessController extends Controller
 {
@@ -28,20 +29,41 @@ class BusinessController extends Controller
             'expires_at' => now()->addMinutes(5),
         ]);
 
+        /*
         Mail::raw("Your OTP code is: {$otp}", function ($message) use ($validated) {
             $message->to($validated['owner']['email'])
                 ->subject('Your OTP Code');
         });
+        */
 
         return back()->with([
+            'success'=>true,
             'transaction_id' => $transactionId,
-            'otp_sent' => true,
         ]);
     }
 
     public function store (StoreBusinessRequest $request) {
 
         $validated = $request->validated();
+
+        $request->validate([
+            'otp' => ['string','required','max:6'],
+            'transaction_id' => ['required','uuid']
+        ]);
+
+
+        $otpToken = OtpToken::where('transaction_id', $request->transaction_id)
+            ->where('email', $validated['owner']['email'])
+            ->where('used', false)
+            ->where('expires_at', '>', now())
+            ->first();
+
+        if (!$otpToken || !Hash::check($request->otp, $otpToken->otp)) {
+            return back()->withErrors(['otp' => 'Invalid or expired OTP.']);
+        }
+
+        $otpToken->update(['used', true]);
+
 
         $owner = Owner::create([
             'name' => $validated['owner']['name'],

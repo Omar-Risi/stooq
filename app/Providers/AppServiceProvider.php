@@ -31,6 +31,10 @@ class AppServiceProvider extends ServiceProvider
                  'general' => Lang::get('general'),
                  'sign_up' => Lang::get('sign_up'),
                  'validation' => Lang::get('validation')
+            ],
+            'flash' => fn() => [
+                'success' => session('success'),
+                'transaction_id' => session('transaction_id'),
             ]
     ]);
     }
