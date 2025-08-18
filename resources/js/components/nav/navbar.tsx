@@ -28,7 +28,7 @@ export default function NavBar({ className }: NavBarProps) {
 
     return (
         <header className={`${className} w-screen p-4 text-primary fill-primary flex justify-between`}>
-            <Link href={route('home')} className="flex gap-4">
+            <Link href={route('home')} className="flex gap-4 items-center">
                 <StooqLogo />
                 <h1 className="font-extrabold text-2xl"> {translations.general.stooq} </h1>
             </Link>
