@@ -29,12 +29,10 @@ class BusinessController extends Controller
             'expires_at' => now()->addMinutes(5),
         ]);
 
-        /*
         Mail::raw("Your OTP code is: {$otp}", function ($message) use ($validated) {
             $message->to($validated['owner']['email'])
                 ->subject('Your OTP Code');
         });
-        */
 
         return back()->with([
             'success'=>true,

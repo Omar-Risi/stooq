@@ -157,6 +157,7 @@ export default function SignUp() {
                             setData={setData}
                             processing={processing}
                             handleSubmit={handleSubmit}
+                            handleValidate={handleValidate}
                         />
 
                         <Button

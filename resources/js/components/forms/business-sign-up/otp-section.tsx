@@ -19,17 +19,33 @@ import {
 } from "@/components/ui/input-otp"
 
 
-import { Loader2Icon } from "lucide-react";
+import { Loader2Icon, Underline } from "lucide-react";
 
-function OtpSection({ open, setOtpOpen, data, setData, processing, handleSubmit }) {
+function OtpSection({ open, setOtpOpen, data, setData, processing, handleSubmit, handleValidate }) {
     return (
-        <AlertDialog open={open}>
+        <AlertDialog open={true}>
             <AlertDialogContent>
                 <AlertDialogHeader>
                     <AlertDialogTitle> One final step </AlertDialogTitle>
                     <AlertDialogDescription>
                         We just sent you a one-time password to the email you provided! please check it out and fill it in below.
                     </AlertDialogDescription>
+                    <div className="flex gap-2">
+                        <p className="text-muted-foreground text-sm">Didn't recieve otp? </p>
+                        <button
+                            type="button"
+                            className="
+                            text-primary
+                            hover:underline
+                            text-sm
+                            cursor-pointer
+                        "
+                            onClick={handleValidate}
+                        >
+                            click to
+                            resend otp
+                        </button>
+                    </div>
                 </AlertDialogHeader>
 
 
