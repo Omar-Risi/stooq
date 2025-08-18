@@ -23,7 +23,7 @@ import { Loader2Icon, Underline } from "lucide-react";
 
 function OtpSection({ open, setOtpOpen, data, setData, processing, handleSubmit, handleValidate }) {
     return (
-        <AlertDialog open={true}>
+        <AlertDialog open={open}>
             <AlertDialogContent>
                 <AlertDialogHeader>
                     <AlertDialogTitle> One final step </AlertDialogTitle>
