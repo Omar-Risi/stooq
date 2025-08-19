@@ -68,6 +68,9 @@ class BusinessResource extends Resource
                     Forms\Components\TextInput::make('resident_id')
                         ->label('ID number'),
 
+                    Forms\Components\TextInput::make('nationality')
+                        ->label('Owner nationality'),
+
                     Forms\Components\Select::make('governorate')
                         ->options([
                             'muscat' => 'Muscat',

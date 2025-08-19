@@ -28,6 +28,7 @@ class StoreBusinessRequest extends FormRequest
             'owner.gender' => ['required', 'string'],
             'owner.resident_id' => ['required', 'string', 'max:50'],
             'owner.education_level' => ['required', 'string', 'max:255'],
+            'owner.nationality' => ['required', 'string', 'max:255'],
             'owner.institute_name' => ['required', 'string', 'max:255'],
             'owner.phone_number' => ['required', 'string'],
             'owner.email' => ['required', 'email', 'max:255'],

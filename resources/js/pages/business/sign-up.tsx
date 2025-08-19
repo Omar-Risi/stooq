@@ -46,6 +46,7 @@ export default function SignUp() {
             name: "",
             gender: "male",
             age: "",
+            nationality: "",
             resident_id: "",
             education_level: "",
             institute_name: "",
@@ -99,6 +100,7 @@ export default function SignUp() {
             onSuccess: () => {
                 setOtpOpen(false);
                 reset();
+                sessionStorage.clear();
             },
         })
 

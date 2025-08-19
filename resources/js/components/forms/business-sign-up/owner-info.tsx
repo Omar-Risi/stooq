@@ -13,8 +13,15 @@ import {
     PrefixInputContainer
 } from "@/components/forms/input-container";
 
+import { countryCodes } from "@/lib/countries";
+import { useEffect } from "react";
+
 
 export default function OwnerInfoCard({ data, errors, setData, translations }) {
+
+
+    const countries = countryCodes.map(code => { return { label: translations.nationality.options[code], value: code } })
+
     return (
         <Card className="w-full text-start">
             <CardHeader>
@@ -116,6 +123,17 @@ export default function OwnerInfoCard({ data, errors, setData, translations }) {
                     error={errors['owner.email']}
                     onChange={(val) => setData("owner.email", val)}
                 />
+
+                <SelectContainer
+                    name="owner.nationality"
+                    label={translations.nationality.label}
+                    required
+                    options={countries}
+                    value={data.owner.nationality}
+                    onChange={(val) => setData("owner.nationality", val)}
+                    error={errors['owner.nationality']}
+                />
+
 
                 <SelectContainer
                     name="owner.governorate"

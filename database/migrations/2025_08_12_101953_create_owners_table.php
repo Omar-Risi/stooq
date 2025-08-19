@@ -14,7 +14,9 @@ return new class extends Migration
         Schema::create('owners', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->integer('age');
             $table->string('gender');
+            $table->string('nationality');
             $table->string('resident_id');
             $table->string('governorate');
             $table->string('education_level');

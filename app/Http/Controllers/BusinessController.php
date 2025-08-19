@@ -63,17 +63,7 @@ class BusinessController extends Controller
         $otpToken->update(['used', true]);
 
 
-        $owner = Owner::create([
-            'name' => $validated['owner']['name'],
-            'age' => $validated['owner']['age'],
-            'gender' => 'male',
-            'resident_id' => $validated['owner']['resident_id'],
-            'education_level' => $validated['owner']['education_level'],
-            'institute_name' => $validated['owner']['institute_name'],
-            'phone_number' => $validated['owner']['phone_number'],
-            'email' => $validated['owner']['email'],
-            'governorate' => $validated['owner']['governorate'],
-        ]);
+        $owner = Owner::create($validated['owner']);
 
         $logoPath = $request->file('business.logo')->store('business_logos', 'public');
         $bannerPath = $request->file('business.banner')->store('business_banners', 'public');

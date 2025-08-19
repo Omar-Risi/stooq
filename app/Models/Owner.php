@@ -10,7 +10,9 @@ class Owner extends Model
 {
     protected $fillable = [
         'name',
+        'age',
         'gender',
+        'nationality',
         'resident_id',
         'governorate',
         'education_level',
