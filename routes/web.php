@@ -22,6 +22,10 @@ Route::middleware([SetLocale::class])->group(
 
         Route::post('/business/store', [BusinessController::class, 'store'])->name('business.store');
         Route::post('/business/validate', [BusinessController::class, 'validate'])->name('business.validate');
+        Route::post('/api/success', function (Request $request) {
+
+            return back()->with('success', 'successfully post');
+        });
     }
 
 );

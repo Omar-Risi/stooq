@@ -15,6 +15,7 @@ export default function SignUp() {
     const pageProps = usePage().props;
     const { direction, translations, flash } = usePage().props;
     const [otpOpen, setOtpOpen] = useState(false);
+    const [fileKey, setFileKey] = useState(0);
 
 
     function usePersistedFormState(key: string, data: (string | number | boolean | unknown), setData: (name: string, value: (string | boolean | number | unknown)) => void) {
@@ -39,9 +40,7 @@ export default function SignUp() {
         }, [key, data]);
     }
 
-
-
-    const { data, setData, post, processing, errors, reset, wasSuccessful } = useForm({
+    const initialData = {
         owner: {
             name: "",
             gender: "male",
@@ -66,11 +65,12 @@ export default function SignUp() {
         products: [],
         otp: '',
         transaction_id: '',
-    });
+
+    }
 
 
+    const { data, setData, post, processing, errors, reset, wasSuccessful } = useForm(initialData);
 
-    usePersistedFormState("ownerFormData", data, setData);
 
     useEffect(() => {
         if (wasSuccessful && flash.success && flash.transaction_id) {
@@ -80,6 +80,7 @@ export default function SignUp() {
         }
     }, [wasSuccessful, flash]);
 
+    usePersistedFormState("ownerFormData", data, setData);
 
     function handleValidate(e) {
         e.preventDefault();
@@ -99,8 +100,9 @@ export default function SignUp() {
             preserveScroll: true,
             onSuccess: () => {
                 setOtpOpen(false);
-                reset();
-                sessionStorage.clear();
+                setData(initialData);
+                sessionStorage.removeItem("ownerFormData");
+                setFileKey(fileKey + 1)
             },
         })
 
@@ -140,6 +142,7 @@ export default function SignUp() {
                         errors={errors}
                         setData={setData}
                         translations={translations.sign_up.forms.business}
+                        key={fileKey}
                     />
 
                     <ProductsCard
@@ -147,6 +150,7 @@ export default function SignUp() {
                         errors={errors}
                         setData={setData}
                         translations={translations.sign_up.forms.products}
+                        key={fileKey + 1}
                     />
 
 
