@@ -2,13 +2,13 @@ import { usePage } from "@inertiajs/react";
 import NavBar from "@/components/nav/navbar";
 import { Button } from "@/components/ui/button";
 import { useForm } from "@inertiajs/react";
-import { Loader2Icon } from "lucide-react";
+import { Loader2Icon, CircleCheckBig } from "lucide-react";
 import { OtpSection } from "@/components/forms/business-sign-up/otp-section";
 import OwnerInfoCard from "@/components/forms/business-sign-up/owner-info";
 import BusinessInfoCard from '@/components/forms/business-sign-up/business-info';
 import { useEffect, useState } from "react";
 import ProductsCard from "@/components/forms/business-sign-up/products";
-
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 
 export default function SignUp() {
 
@@ -16,6 +16,7 @@ export default function SignUp() {
     const { direction, translations, flash } = usePage().props;
     const [otpOpen, setOtpOpen] = useState(false);
     const [fileKey, setFileKey] = useState(0);
+    const [alertStyle, setAlertStyle] = useState("");
 
 
     function usePersistedFormState(key: string, data: (string | number | boolean | unknown), setData: (name: string, value: (string | boolean | number | unknown)) => void) {
@@ -85,6 +86,8 @@ export default function SignUp() {
     function handleValidate(e) {
         e.preventDefault();
 
+        console.log(errors);
+
         post(route('business.validate'), {
             preserveScroll: true,
         })
@@ -103,6 +106,9 @@ export default function SignUp() {
                 setData(initialData);
                 sessionStorage.removeItem("ownerFormData");
                 setFileKey(fileKey + 1)
+
+                setAlertStyle('animate-fly-in');
+                setTimeout(() => setAlertStyle(''), 5000)
             },
         })
 
@@ -178,6 +184,19 @@ export default function SignUp() {
                 </form>
             </section>
 
+
+            <Alert variant="default" className={`${alertStyle} w-3/4 lg:w-1/3 fixed top-8 right-4 z-50 transform-[translateX(150%)]`}>
+                <AlertTitle className="flex gap-2">
+                    <CircleCheckBig />
+                    {translations.sign_up.success.title}
+                </AlertTitle>
+                <AlertDescription className="mt-2">
+                    {translations.sign_up.success.description}
+                </AlertDescription>
+            </Alert>
+
+
         </div>
     )
+
 }

@@ -10,8 +10,32 @@
     font-optical-sizing: auto;
 }
 
+@keyframes flyIn {
+    0% {
+        transform: translateX(150%);
+    }
+
+    2.5% {
+        transform: translateX(0);
+    }
+
+    80% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(150%);
+
+    }
+}
+
 @theme {
-    --font-plus-jakarta: "Plus Jakarta Sans", sans-serif;
+
+    --animate-fly-in: flyIn 5s ease-in-out;
+
+
+    --font-plus-jakarta: "Plus Jakarta Sans",
+        sans-serif;
 
     /* --color-primary: #5A10C7; */
     --color-primary-dark: #2C0861;
@@ -22,8 +46,14 @@
     --color-light-magenta: #A984E0;
     --color-dark-magenta: #9052ED;
 
-    --font-sans:
-        'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-sans: 'Instrument Sans',
+        ui-sans-serif,
+        system-ui,
+        sans-serif,
+        'Apple Color Emoji',
+        'Segoe UI Emoji',
+        'Segoe UI Symbol',
+        'Noto Color Emoji';
 
     --radius-lg: var(--radius);
     --radius-md: calc(var(--radius) - 2px);

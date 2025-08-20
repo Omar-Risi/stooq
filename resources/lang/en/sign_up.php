@@ -331,5 +331,9 @@ return [
             ],
         ],
     ],
+    'success' => [
+        'title' => 'Successfully submitted',
+        'description' => 'We recieved your submission to join stooq! we will contact you as soons as you are approved.'
+    ]
 ];
 
