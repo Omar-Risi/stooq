@@ -47,7 +47,7 @@ export default function SignUp() {
             age: "",
             nationality: "",
             resident_id: "",
-            education_level: "",
+            education_level: "higher_education",
             institute_name: "",
             phone_number: "",
             email: "",

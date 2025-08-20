@@ -77,6 +77,7 @@ export default function OwnerInfoCard({ data, errors, setData, translations }) {
                     onChange={(val) => setData("owner.resident_id", val)}
                 />
 
+                {/*
                 <RadioInputContainer
                     name="owner.education_level"
                     label={translations.education_level.label}
@@ -88,7 +89,7 @@ export default function OwnerInfoCard({ data, errors, setData, translations }) {
                     value={data.owner.education_level}
                     onChange={(val) => setData("owner.education_level", val)}
                     error={errors['owner.eudcation_level']}
-                />
+                />*/}
 
                 <TextInputContainer
                     name="owner.institute_name"
