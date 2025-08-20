@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('businesses', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->longText('description');
+            $table->longText('description')->nullable();
             $table->string('instagram_handle');
             $table->string('commercial_registeration')->nullable();
             $table->integer('age')->nullable();

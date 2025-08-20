@@ -37,7 +37,7 @@ class StoreBusinessRequest extends FormRequest
             // Business
             'business.name' => ['required', 'string', 'max:255'],
             'business.age' => ['required', 'integer', 'min:0'], // in years
-            'business.description' => ['required', 'string'],
+            'business.description' => ['nullable', 'string'],
             'business.commercial_registration' => ['nullable', 'string', 'max:100'],
             'business.instagram_handle' => ['required', 'string', 'max:50', 'regex:/^[A-Za-z0-9._]+$/'],
             'business.logo' => ['required', 'image', 'mimes:jpg,jpeg,png', 'max:2048'],

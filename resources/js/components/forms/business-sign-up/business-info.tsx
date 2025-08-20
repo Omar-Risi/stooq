@@ -36,7 +36,6 @@ export default function BusinessInfoCard({ data, errors, setData, translations }
                     name="business.description"
                     label={translations.description.label}
                     placeholder={translations.description.placeholder}
-                    required
                     value={data.business.description}
                     error={errors['business.description']}
                     onChange={(val) => setData("business.description", val)}
