@@ -24,10 +24,10 @@ class StoreBusinessRequest extends FormRequest
         return [
             // Owner
             'owner.name' => ['required', 'string', 'max:255'],
-            'owner.age' => ['required', 'integer', 'min:18'], // TODO: set corrent min age
+            'owner.age' => ['required', 'integer', 'min:18'],
             'owner.gender' => ['required', 'string'],
             'owner.resident_id' => ['required', 'string', 'max:50'],
-            'owner.education_level' => ['required', 'string', 'max:255'],
+            /* 'owner.education_level' => ['string', 'max:255'], */
             'owner.nationality' => ['required', 'string', 'max:255'],
             'owner.institute_name' => ['required', 'string', 'max:255'],
             'owner.phone_number' => ['required', 'string'],

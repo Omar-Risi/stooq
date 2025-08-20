@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('nationality');
             $table->string('resident_id');
             $table->string('governorate');
-            $table->string('education_level');
+            $table->string('education_level')->default('higher_education');
             $table->string('institute_name');
             $table->string('phone_number');
             $table->string('email');
