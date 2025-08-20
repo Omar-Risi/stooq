@@ -289,7 +289,7 @@ return [
                 'placeholder' => '@yourbusiness',
             ],
             'logo' => [
-                'label' => 'Business Logo',
+                'label' => 'Business Logo (224x260)',
                 'placeholder' => '',
             ],
             'banner' => [
@@ -320,7 +320,7 @@ return [
                 'placeholder' => '10',
             ],
             'image' => [
-                'label' => 'Product Image',
+                'label' => 'Product Image (225x225)',
                 'placeholder' => '',
             ],
             'delete_dialog' => [
