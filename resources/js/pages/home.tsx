@@ -34,11 +34,13 @@ export default function Home() {
                                     {translations.general.nav.become_a_vendor}
                                 </Link>
                             </Button>
-                            <a className="block" href="https://stooq.kushk.io">
-                                <Button className="bg-none border-4 text-primary border-primary hover:border-transparent">
-                                    {translations.general.nav.start_shopping}
-                                </Button>
-                            </a>
+                            {/*
+                                <a className="block" href="https://stooq.kushk.io">
+                                    <Button className="bg-none border-4 text-primary border-primary hover:border-transparent">
+                                        {translations.general.nav.start_shopping}
+                                    </Button>
+                                </a>
+                            */}
                         </div>
                     </div>
                 </div>
