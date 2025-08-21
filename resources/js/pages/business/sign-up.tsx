@@ -56,6 +56,7 @@ export default function SignUp() {
         },
         business: {
             name: "",
+            name_ar: "",
             age: "",
             description: "",
             commercial_registration: "",

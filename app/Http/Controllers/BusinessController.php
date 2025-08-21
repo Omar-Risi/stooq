@@ -71,6 +71,7 @@ class BusinessController extends Controller
         $business = Business::create([
             'owner_id' => $owner->id, // Link to owner
             'name' => $validated['business']['name'],
+            'name_ar'=>$validated['business']['name_ar'],
             'age' => $validated['business']['age'],
             'description' => $validated['business']['description'],
             'commercial_registration' => $validated['business']['commercial_registration'] ?? null,

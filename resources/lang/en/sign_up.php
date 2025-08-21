@@ -272,6 +272,10 @@ return [
                 'label' => 'Business Name',
                 'placeholder' => 'e.g. ScanBite',
             ],
+            'name_ar' => [
+                'label' => 'Business Name (AR)',
+                'placeholder' => 'سكان بايت',
+            ],
             'age' => [
                 'label' => 'Business Age (years)',
                 'placeholder' => 'e.g. 2',

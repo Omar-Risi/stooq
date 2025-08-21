@@ -10,17 +10,31 @@ export default function BusinessInfoCard({ data, errors, setData, translations }
             </CardHeader>
             <CardContent className="space-y-4">
 
-                <TextInputContainer
-                    name="business.name"
-                    type="text"
-                    label={translations.name.label}
-                    placeholder={translations.name.placeholder}
-                    required
-                    value={data.business.name}
-                    error={errors['business.name']}
-                    onChange={(val) => setData("business.name", val)}
-                />
+                <div>
+                    <TextInputContainer
+                        name="business.name"
+                        type="text"
+                        label={translations.name.label}
+                        placeholder={translations.name.placeholder}
+                        required
+                        value={data.business.name}
+                        error={errors['business.name']}
+                        onChange={(val) => setData("business.name", val)}
+                    />
 
+                    <TextInputContainer
+                        name="business.name_ar"
+                        type="text"
+                        label={translations.name_ar.label}
+                        placeholder={translations.name_ar.placeholder}
+                        required
+                        value={data.business.name_ar}
+                        error={errors['business.name_ar']}
+                        onChange={(val) => setData("business.name_ar", val)}
+                    />
+
+
+                </div>
                 <TextInputContainer
                     name="business.age"
                     type="number"

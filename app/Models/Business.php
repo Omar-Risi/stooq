@@ -13,6 +13,7 @@ class Business extends Model
 
     protected $fillable = [
         'name',
+        'name_ar',
         'description',
         'instagram_handle',
         'commercial_registeration',

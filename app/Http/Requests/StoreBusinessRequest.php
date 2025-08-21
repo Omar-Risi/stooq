@@ -36,6 +36,7 @@ class StoreBusinessRequest extends FormRequest
 
             // Business
             'business.name' => ['required', 'string', 'max:255'],
+            'business.name_ar' => ['required', 'string', 'max:255'],
             'business.age' => ['required', 'integer', 'min:0'], // in years
             'business.description' => ['nullable', 'string'],
             'business.commercial_registration' => ['nullable', 'string', 'max:100'],
