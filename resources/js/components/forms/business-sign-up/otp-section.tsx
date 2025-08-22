@@ -9,7 +9,6 @@ import {
     AlertDialogTitle,
 } from "@/components/ui/alert-dialog"
 
-import { Button } from "@/components/ui/button";
 
 import {
     InputOTP,
@@ -19,7 +18,7 @@ import {
 } from "@/components/ui/input-otp"
 
 
-import { Loader2Icon, Underline } from "lucide-react";
+import { Loader2Icon } from "lucide-react";
 
 function OtpSection({ open, setOtpOpen, data, setData, processing, handleSubmit, handleValidate }) {
     return (

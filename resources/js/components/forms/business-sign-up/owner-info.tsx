@@ -14,7 +14,6 @@ import {
 } from "@/components/forms/input-container";
 
 import { countryCodes } from "@/lib/countries";
-import { useEffect } from "react";
 
 
 export default function OwnerInfoCard({ data, errors, setData, translations }) {

@@ -12,7 +12,6 @@ import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 
 export default function SignUp() {
 
-    const pageProps = usePage().props;
     const { direction, translations, flash } = usePage().props;
     const [otpOpen, setOtpOpen] = useState(false);
     const [fileKey, setFileKey] = useState(0);
@@ -71,7 +70,7 @@ export default function SignUp() {
     }
 
 
-    const { data, setData, post, processing, errors, reset, wasSuccessful } = useForm(initialData);
+    const { data, setData, post, processing, errors, wasSuccessful } = useForm(initialData);
 
 
     useEffect(() => {
@@ -80,7 +79,7 @@ export default function SignUp() {
             setOtpOpen(true);
             console.log(flash.otp)
         }
-    }, [wasSuccessful, flash]);
+    }, [wasSuccessful, flash, setData]);
 
     usePersistedFormState("ownerFormData", data, setData);
 
