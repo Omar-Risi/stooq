@@ -6,7 +6,7 @@
         <td style="background:#ffffff; border-radius:16px; box-shadow:0 6px 24px rgba(0,0,0,0.06); padding:32px 28px;">
 
             <!-- Title -->
-            <h1 style="margin:0 0 16px 0; font-size:22px; font-weight:700; text-align:center; color:#0f172a;">
+            <h1 style="margin:0 0 16px 0; font-size:22px; font-weight:700; text-align:center; color:#5A10C7;">
             Here's your OTP.
             </h1>
 

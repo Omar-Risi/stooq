@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\BusinessApplied;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreBusinessRequest;
 use App\Models\Business;
@@ -11,7 +12,6 @@ use App\Models\OtpToken;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
-use Inertia\Inertia;
 use App\Mail\OtpSent;
 
 class BusinessController extends Controller
@@ -96,6 +96,9 @@ class BusinessController extends Controller
                 ]);
             }
         }
+
+        Mail::to($validated['owner']['email'])
+            ->send(new BusinessApplied());
 
         return  redirect(route('business.sign-up'))->with('success', 'created successfully');
     }
