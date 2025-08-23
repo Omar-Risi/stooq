@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use Inertia\Inertia;
+use App\Mail\OtpSent;
 
 class BusinessController extends Controller
 {
@@ -29,10 +30,8 @@ class BusinessController extends Controller
             'expires_at' => now()->addMinutes(5),
         ]);
 
-        Mail::raw("Your OTP code is: {$otp}", function ($message) use ($validated) {
-            $message->to($validated['owner']['email'])
-                ->subject('Your OTP Code');
-        });
+        Mail::to($validated['owner']['email'])
+            ->send(new OtpSent($otp));
 
         return back()->with([
             'success'=>true,
