@@ -64,8 +64,11 @@ export default function NavBar({ className }: NavBarProps) {
                         </SheetTrigger>
                         <SheetContent side="right" className="w-64 flex flex-col">
                             <SheetHeader>
+                                <SheetClose asChild>
+                                    <Menu size={36} />
+                                </SheetClose>
                             </SheetHeader>
-                            <div className="mt-4 flex flex-col justify-center gap-4 px-4 flex-1 " >
+                            <div className="mt-4 flex flex-col justify-start items-start gap-4 px-4 flex-1 " >
                                 <SheetClose asChild>
                                     <Link href={`${route('home')}#about`} className="text-lg">
                                         {translations.general.nav.about}
