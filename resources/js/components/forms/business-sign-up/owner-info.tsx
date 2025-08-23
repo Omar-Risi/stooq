@@ -90,15 +90,17 @@ export default function OwnerInfoCard({ data, errors, setData, translations }) {
                     error={errors['owner.eudcation_level']}
                 />*/}
 
-                <TextInputContainer
+                <SelectContainer
                     name="owner.institute_name"
-                    type="text"
                     label={translations.institute_name.label}
-                    placeholder={translations.institute_name.placeholder}
                     required
+                    options={Object.entries(translations.institute_name.options).map(([key, value]) => ({
+                        value: key,
+                        label: value,
+                    }))}
                     value={data.owner.institute_name}
-                    error={errors['owner.institute_name']}
                     onChange={(val) => setData("owner.institute_name", val)}
+                    error={errors['owner.institute_name']}
                 />
 
                 <PrefixInputContainer
@@ -106,8 +108,8 @@ export default function OwnerInfoCard({ data, errors, setData, translations }) {
                     prefix="+968"
                     type="number"
                     label={translations.phone_number.label}
-                    placeholder={translations.phone_number.placeholder}
                     required
+                    placeholder={translations.phone_number.placeholder}
                     value={data.owner.phone_number}
                     error={errors['owner.phone_number']}
                     onChange={(val) => setData("owner.phone_number", val)}
