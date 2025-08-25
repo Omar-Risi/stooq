@@ -9,6 +9,7 @@ import BusinessInfoCard from '@/components/forms/business-sign-up/business-info'
 import { useEffect, useState } from "react";
 import ProductsCard from "@/components/forms/business-sign-up/products";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
+import Footer from "@/components/nav/footer";
 
 export default function SignUp() {
 
@@ -196,6 +197,7 @@ export default function SignUp() {
             </Alert>
 
 
+            <Footer />
         </div>
     )
 
