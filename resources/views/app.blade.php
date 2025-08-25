@@ -10,12 +10,14 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@100..900&display=swap" rel="stylesheet">
+
         @routes
         @viteReactRefresh
         @vite(['resources/js/app.tsx', "resources/js/pages/{$page['component']}.tsx"])
         @inertiaHead
     </head>
-    <body class="antialiased bg-[#efefef] font-plus-jakarta font-medium overflow-x-hidden">
+    <body class="antialiased bg-[#efefef] font-plus-jakarta rtl:font-noto-kufi-arabic font-medium overflow-x-hidden">
         @inertia
     </body>
 </html>
