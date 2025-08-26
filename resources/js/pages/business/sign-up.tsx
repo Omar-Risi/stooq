@@ -17,6 +17,7 @@ export default function SignUp() {
     const [otpOpen, setOtpOpen] = useState(false);
     const [fileKey, setFileKey] = useState(0);
     const [alertStyle, setAlertStyle] = useState("");
+    const [isResetDisabled, setIsResetDisabled] = useState(false);
 
 
     function usePersistedFormState(key: string, data: (string | number | boolean | unknown), setData: (name: string, value: (string | boolean | number | unknown)) => void) {
@@ -87,7 +88,11 @@ export default function SignUp() {
     function handleValidate(e) {
         e.preventDefault();
 
-        console.log(errors);
+        if (otpOpen) {
+            setIsResetDisabled(true);
+            setTimeout(() => setIsResetDisabled(false), 300000) // disable five minutes
+        }
+
 
         post(route('business.validate'), {
             preserveScroll: true,
@@ -171,6 +176,7 @@ export default function SignUp() {
                             processing={processing}
                             handleSubmit={handleSubmit}
                             handleValidate={handleValidate}
+                            isResetDisabled={isResetDisabled}
                         />
 
                         <Button

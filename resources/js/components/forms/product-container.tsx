@@ -106,7 +106,7 @@ function ProductContainer({
                             <AlertDialogCancel>
                                 {translations.delete_dialog.cancel}
                             </AlertDialogCancel>
-                            <AlertDialogAction onClick={onRemove}>
+                            <AlertDialogAction className="bg-destructive cursor-pointer hover:bg-destructive hover:brightness-105" onClick={onRemove}>
                                 {translations.delete_dialog.confirm}
                             </AlertDialogAction>
                         </AlertDialogFooter>

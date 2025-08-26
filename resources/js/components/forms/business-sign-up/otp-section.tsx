@@ -20,7 +20,9 @@ import {
 
 import { Loader2Icon } from "lucide-react";
 
-function OtpSection({ open, setOtpOpen, data, setData, processing, handleSubmit, handleValidate }) {
+function OtpSection({ open, setOtpOpen, data, setData, processing, handleSubmit, handleValidate, isResetDisabled }) {
+
+
     return (
         <AlertDialog open={open}>
             <AlertDialogContent>
@@ -38,8 +40,13 @@ function OtpSection({ open, setOtpOpen, data, setData, processing, handleSubmit,
                             hover:underline
                             text-sm
                             cursor-pointer
+
+                            disabled:text-muted-foreground
+                            disabled:cursor-default
+                            disabled:hover:no-underline
                         "
                             onClick={handleValidate}
+                            disabled={isResetDisabled}
                         >
                             click to
                             resend otp
