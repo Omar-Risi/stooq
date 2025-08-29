@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Middleware\SetLocale;
 use App\Http\Controllers\BusinessController;
+use Illuminate\Support\Facades\Cookie;
 
 
 Route::middleware([SetLocale::class])->group(
@@ -26,8 +27,12 @@ Route::middleware([SetLocale::class])->group(
 
             return back()->with('success', 'successfully post');
         });
-    }
 
+        Route::post('/accept-terms', function () {
+            Cookie::queue('is_agreed_to_terms', true, 60 * 24 * 365); // 1 year
+            return back();
+        });
+    }
 );
 
 Route::post('toggle-locale', function (Request $request) {

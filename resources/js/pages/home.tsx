@@ -5,6 +5,7 @@ import SubHeading from "@/components/front/sub-heading";
 import { Link } from "@inertiajs/react";
 import { Truck, Package, ChartArea } from "lucide-react";
 import { usePage } from "@inertiajs/react";
+import { TermsAndConditions } from "@/components/terms-and-conditions";
 
 
 export default function Home() {
@@ -116,6 +117,7 @@ export default function Home() {
                 </ul>
             </section>
 
+            <TermsAndConditions />
 
             <Footer />
         </div>

@@ -6,6 +6,7 @@ use Illuminate\Support\ServiceProvider;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Cookie;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -35,7 +36,8 @@ class AppServiceProvider extends ServiceProvider
             'flash' => fn() => [
                 'success' => session('success'),
                 'transaction_id' => session('transaction_id'),
-            ]
+            ],
+            'is_agreed_to_terms' => fn() => Cookie::get('is_agreed_to_terms', false) ? true : false,
     ]);
     }
 }
