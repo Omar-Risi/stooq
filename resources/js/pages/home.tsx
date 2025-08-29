@@ -10,12 +10,12 @@ import { TermsAndConditions } from "@/components/terms-and-conditions";
 
 export default function Home() {
 
-    const { translations, direction } = usePage().props;
+    const { translations, direction, locale } = usePage().props;
 
 
     return (
 
-        <div dir={direction}>
+        <div dir={direction} className='font-plus-jakarta rtl:font-noto-kufi-arabic'>
             <main className="relative flex flex-col min-h-[50vh]">
                 {/* BG made independent because of scale-x-125 */}
                 <div className="bg-linear-to-br from-light-magenta to-dark-magenta h-[110%] scale-x-125 w-screen -z-5 rounded-b-full absolute top-0 left-0"></div>

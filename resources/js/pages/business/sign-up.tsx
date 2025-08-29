@@ -121,7 +121,7 @@ export default function SignUp() {
     }
 
     return (
-        <div dir={direction} className="h-full w-full">
+        <div dir={direction} className="h-full w-full font-plus-jakarta rtl:font-noto-kufi-arabic" >
             <main className="relative flex flex-col min-h-[50vh]">
                 {/* BG made independent because of scale-x-125 */}
                 <div className="bg-linear-to-br from-light-magenta to-dark-magenta h-full scale-x-125 w-screen -z-5 rounded-b-full absolute top-0 left-0"></div>
