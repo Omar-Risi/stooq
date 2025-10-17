@@ -44,9 +44,11 @@ class BusinessResource extends Resource
                         ->label('About business')
                         ->columnSpanFull(),
                     Forms\Components\FileUpload::make('logo')
-                        ->label('Business logo'),
+                        ->label('Business logo')
+                        ->downloadable(),
                     Forms\Components\FileUpload::make('banner')
-                        ->label('Business banner'),
+                        ->label('Business banner')
+                    ->downloadable(),
                 ]),
 
             Forms\Components\Fieldset::make('Owner')
@@ -118,7 +120,8 @@ class BusinessResource extends Resource
                         ->label('Product description')
                         ->columnSpanFull(),
                     Forms\Components\FileUpload::make('image')
-                        ->label('Product image'),
+                        ->label('Product image')
+                        ->downloadable(),
                 ])
                 ->columns(2)
                 ->minItems(0)
