@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 import ProductsCard from "@/components/forms/business-sign-up/products";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import Footer from "@/components/nav/footer";
+import imageCompression from 'browser-image-compression';
 
 export default function SignUp() {
 
@@ -99,24 +100,80 @@ export default function SignUp() {
         })
     }
 
-    function handleSubmit(e) {
+    async function handleSubmit(e) {
 
         e.preventDefault();
 
-        console.log(errors)
+        // Image compression
+        const compressionOptions = {
+            maxSizeMB: 1,
+            maxWidthOrHeight: 1920,
+            useWebWorker: true,
+            fileType: 'image/jpeg'
+        };
 
-        post('/business/store', {
-            preserveScroll: true,
-            onSuccess: () => {
-                setOtpOpen(false);
-                setData(initialData);
-                sessionStorage.removeItem("ownerFormData");
-                setFileKey(fileKey + 1)
+        try {
+            const compressedData = { ...data };
 
-                setAlertStyle('animate-fly-in');
-                setTimeout(() => setAlertStyle(''), 5000)
-            },
-        })
+            // Compress logo if it exists
+            if (data.business.logo && data.business.logo instanceof File) {
+                compressedData.business.logo = await imageCompression(data.business.logo, compressionOptions);
+            }
+
+            // Compress banner if it exists
+            if (data.business.banner && data.business.banner instanceof File) {
+                compressedData.business.banner = await imageCompression(data.business.banner, compressionOptions);
+            }
+
+            // Compress product images if they exist
+            if (data.products && data.products.length > 0) {
+                compressedData.products = await Promise.all(
+                    data.products.map(async (product) => {
+                        if (product.image && product.image instanceof File) {
+                            return {
+                                ...product,
+                                image: await imageCompression(product.image, compressionOptions)
+                            };
+                        }
+                        return product;
+                    })
+                );
+            }
+
+            // Update form data with compressed images
+            Object.entries(compressedData).forEach(([key, value]) => {
+                setData(key, value);
+            });
+
+            post('/business/store', {
+                preserveScroll: true,
+                onSuccess: () => {
+                    setOtpOpen(false);
+                    setData(initialData);
+                    sessionStorage.removeItem("ownerFormData");
+                    setFileKey(fileKey + 1)
+
+                    setAlertStyle('animate-fly-in');
+                    setTimeout(() => setAlertStyle(''), 5000)
+                },
+            })
+
+        } catch (error) {
+            console.error('Image compression error:', error);
+            // Fallback to original submission if compression fails
+            post('/business/store', {
+                preserveScroll: true,
+                onSuccess: () => {
+                    setOtpOpen(false);
+                    setData(initialData);
+                    sessionStorage.removeItem("ownerFormData");
+                    setFileKey(fileKey + 1)
+
+                    setAlertStyle('animate-fly-in');
+                    setTimeout(() => setAlertStyle(''), 5000)
+                },
+            })
+        }
 
     }
 
