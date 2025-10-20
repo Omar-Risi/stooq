@@ -22,11 +22,11 @@ class DatabaseSeeder extends Seeder
 
 
         // !REMOVE FOR PRODUCTION
-        User::factory()->create([
-            'name' => 'Admin',
-            'email' => 'admin@example.com',
-            'password'=>  'admin123'
-        ]);
+        /* User::factory()->create([ */
+        /*     'name' => 'Admin', */
+        /*     'email' => 'admin@example.com', */
+        /*     'password'=>  'admin123' */
+        /* ]); */
 
     }
 }
