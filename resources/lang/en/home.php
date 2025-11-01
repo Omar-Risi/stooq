@@ -10,7 +10,7 @@ return [
     ],
     'pricing' => [
         'headline' => 'Flexible pricing for every type of business',
-        'sub_headline' => 'Starting at just OMR 5 per month you will have access to sell your products on STOOQ and gain benefits.'
+        'sub_headline' => 'Starting at just OMR 5 per month + 12.5% you will have access to sell your products on STOOQ and gain benefits.'
 
     ],
     'benefits' => [
@@ -21,7 +21,7 @@ return [
         ],
         'transport' => [
             'headline' => 'Product transportation',
-            'sub_headline' => 'We handle delivery for your products so you only worry about improving your products'
+            'sub_headline' => 'We handle delivering and storing your products so you only worry about improving your products'
         ],
         'sales'=>[
             'headline' => 'Sales tracking',
