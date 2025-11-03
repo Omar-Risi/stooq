@@ -39,67 +39,74 @@ class BusinessController extends Controller
         ]);
     }
 
-    public function store (StoreBusinessRequest $request) {
+public function store (StoreBusinessRequest $request) {
+    $validated = $request->validated();
 
-        $validated = $request->validated();
+    $request->validate([
+        'otp' => ['string','required','max:6'],
+        'transaction_id' => ['required','uuid']
+    ]);
 
-        $request->validate([
-            'otp' => ['string','required','max:6'],
-            'transaction_id' => ['required','uuid']
-        ]);
+    $otpToken = OtpToken::where('transaction_id', $request->transaction_id)
+        ->where('email', $validated['owner']['email'])
+        ->where('used', false)
+        ->where('expires_at', '>', now())
+        ->first();
 
+    if (!$otpToken || !Hash::check($request->otp, $otpToken->otp)) {
+        return back()->withErrors(['otp' => 'Invalid or expired OTP.']);
+    }
 
-        $otpToken = OtpToken::where('transaction_id', $request->transaction_id)
-            ->where('email', $validated['owner']['email'])
-            ->where('used', false)
-            ->where('expires_at', '>', now())
-            ->first();
+    // ✅ Fix: Correct array syntax
+    $otpToken->update(['used' => true]);
 
-        if (!$otpToken || !Hash::check($request->otp, $otpToken->otp)) {
-            return back()->withErrors(['otp' => 'Invalid or expired OTP.']);
-        }
+    $owner = Owner::create($validated['owner']);
 
-        $otpToken->update(['used', true]);
+    // ✅ Fix: Check if files exist before uploading
+    $logoPath = null;
+    $bannerPath = null;
 
-
-        $owner = Owner::create($validated['owner']);
-
+    if ($request->hasFile('business.logo')) {
         $logoPath = $request->file('business.logo')->store('business_logos', 'public');
+    }
+
+    if ($request->hasFile('business.banner')) {
         $bannerPath = $request->file('business.banner')->store('business_banners', 'public');
+    }
 
-        $business = Business::create([
-            'owner_id' => $owner->id, // Link to owner
-            'name' => $validated['business']['name'],
-            'name_ar'=>$validated['business']['name_ar'],
-            'age' => $validated['business']['age'],
-            'description' => $validated['business']['description'],
-            'commercial_registration' => $validated['business']['commercial_registration'] ?? null,
-            'instagram_handle' => $validated['business']['instagram_handle'],
-            'logo' => $logoPath,
-            'banner' => $bannerPath,
-        ]);
+    $business = Business::create([
+        'owner_id' => $owner->id,
+        'name' => $validated['business']['name'],
+        'name_ar' => $validated['business']['name_ar'],
+        'age' => $validated['business']['age'],
+        'description' => $validated['business']['description'],
+        'commercial_registration' => $validated['business']['commercial_registration'] ?? null,
+        'instagram_handle' => $validated['business']['instagram_handle'],
+        'logo' => $logoPath,
+        'banner' => $bannerPath,
+    ]);
 
-        if (!empty($validated['products'])) {
-            foreach ($validated['products'] as $product) {
-                // Handle product image upload
-                $imagePath = null;
-                if (isset($product['image']) && $product['image'] instanceof \Illuminate\Http\UploadedFile) {
-                    $imagePath = $product['image']->store('products', 'public'); // stores in storage/app/public/products
-                }
+    if (!empty($validated['products'])) {
+        foreach ($validated['products'] as $product) {
+            $imagePath = null;
 
-                Product::create([
-                    'business_id' => $business->id,
-                    'name' => $product['name'],
-                    'price' => $product['price'],
-                    'description' => $product['description'] ?? null,
-                    'image' => $imagePath,
-                ]);
+            if (isset($product['image']) && $product['image'] instanceof \Illuminate\Http\UploadedFile) {
+                $imagePath = $product['image']->store('products', 'public');
             }
+
+            Product::create([
+                'business_id' => $business->id,
+                'name' => $product['name'],
+                'price' => $product['price'],
+                'description' => $product['description'] ?? null,
+                'image' => $imagePath,
+            ]);
         }
+    }
 
-        Mail::to($validated['owner']['email'])
-            ->send(new BusinessApplied());
+    Mail::to($validated['owner']['email'])
+        ->send(new BusinessApplied());
 
-        return  redirect(route('business.sign-up'))->with('success', 'created successfully');
+    return redirect(route('business.sign-up'))->with('success', 'created successfully');
     }
 }
